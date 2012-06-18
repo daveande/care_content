@@ -8,7 +8,7 @@
 
 Hospital.destroy_all
 hospitals = Hospital.create([
-  { name: 'Chicago Hospital', address: '1234 Michigan Ave', city: 'Chicago', state: 'IL', zip: '60657', service_area_id: ServiceArea.first.count  },
+  { name: 'Chicago Hospital', address: '1234 Michigan Ave', city: 'Chicago', state: 'IL', zip: '60657', service_area_id: 2  },
   { name: 'Detroit Hospital', address: '1234 Woodward', city: 'Detroit', state: 'MI', zip: '48207', service_area_id: 1 },
   { name: 'New York Hospital', address: '1234 Broadway', city: 'New York', state: 'NY', zip: '39280', service_area_id: 3  },
   { name: 'Chicago2 Hospital', address: '1234 LaSalle', city: 'Chicago', state: 'IL', zip: '60657', service_area_id: 1 },
