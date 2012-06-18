@@ -1,0 +1,26 @@
+%table.table.table-striped
+  %thead
+    %tr
+      %th Title
+      %th Description 
+      %th Categories 
+  %tbody
+    - @content_files.each do |content|
+      %tr
+        %td 
+          = content.title
+        %td 
+          = content.description
+        %td
+          - content.categories.each do |category|
+            = category.name
+        %td 
+          .btn
+            Preview
+        %td
+          .btn
+            Download
+
+
+
+

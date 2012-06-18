@@ -1,0 +1,68 @@
+@import "bootstrap";
+
+body {
+  padding-top: 60px;
+}
+
+.btn-greenblue {
+  background-color: #49AFCD;
+}
+
+.hero-unit {
+  padding: 20px;
+  h1 {
+    margin-bottom: 10px;
+    font-size: 45px;
+  }
+
+}
+
+#logo {
+  float: left;
+  margin-right: 10px;
+  font-size: 1.7em;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: bold;
+  line-height: 1;
+  &:hover {
+    color: white;
+    text-decoration: none;
+  }
+}
+
+.navbar .nav > li > p {
+  float: none; 
+  line-height: 19px;
+  padding: 9px 10px 11px;
+}
+
+/* footer */
+
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid #eaeaea;
+  color: #999;
+  a {
+    color: #555;
+    &:hover { 
+      color: red;
+      text-decoration: none; 
+    }
+  }
+  ul {
+    float: right;
+    list-style: none;
+    li { 
+      float: left; 
+      margin-left: 10px;
+    }
+  }
+  #copyright {
+    float:left;
+  }
+}
+

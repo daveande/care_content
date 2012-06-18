@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+%html
+  %head
+    %title 
+      = @title.nil? ? "Care Content" : @title 
+    = stylesheet_link_tag    "application"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+    /[if lt IE 9]
+      %script(src="http://html5shim.googlecode.com/svn/trunk/html5.js")
+
+  %body
+    = render :partial => 'layouts/header'
+    .container
+      - if !(flash.empty?)
+        - flash.each do |key, value|
+          - if key == 'notice'
+            %p.notice= notice 
+          - elsif key == 'alert'
+            %p.alert= alert
+      = yield
+      = render :partial => 'layouts/footer'
