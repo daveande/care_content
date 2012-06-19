@@ -9,5 +9,12 @@ ActiveAdmin.register Hospital do
     column :service_area
     default_actions
   end
+
+  filter :service_area
+  filter :name
+  filter :address
+  filter :city
+  filter :state
+  filter :zip
   
 end

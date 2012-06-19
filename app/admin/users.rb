@@ -8,6 +8,11 @@ ActiveAdmin.register User do
     column :last_sign_in_at
     column :created_at
     column :updated_at
+    default_actions
   end
   
+    filter :hospital
+    filter :first_name
+    filter :last_name
+    filter :email
 end

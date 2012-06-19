@@ -6,5 +6,9 @@ ActiveAdmin.register ContentFile do
     column :categories
     
   end
+
+  filter :service_area
+  filter :title
+  filter :description
   
 end
