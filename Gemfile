@@ -7,6 +7,7 @@ gem 'bootstrap-sass', '2.0.3'
 gem 'devise'
 gem 'activeadmin'
 gem 'meta_search'
+gem 'carrierwave'
 
 group :development, :test do
   gem 'sqlite3'

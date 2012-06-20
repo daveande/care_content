@@ -6,8 +6,8 @@ CareContent::Application.routes.draw do
   devise_for :users
   
   root :to => 'pages#home'
-  match '/home' => "pages#home"
   match '/about' => "pages#about"
+  get '/download_file' => "content_files#download_file"
   resources :content_files, :only => [:index, :show]
 
   # The priority is based upon order of creation:

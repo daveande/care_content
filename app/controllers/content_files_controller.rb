@@ -7,4 +7,5 @@ class ContentFilesController < ApplicationController
     @content_files = ContentFile.find(params[:id])
   end
 
+
 end

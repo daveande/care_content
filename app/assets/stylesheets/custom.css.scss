@@ -20,7 +20,7 @@ body {
   color: white;
   text-transform: uppercase;
   letter-spacing: -1px;
-  padding-top: 9px;
+  padding: 10px 0;
   font-weight: bold;
   line-height: 1;
   &:hover {
@@ -29,9 +29,9 @@ body {
   }
 }
 
-.navbar .nav > li > p {
+.navbar .nav > li > a {
   float: none; 
-  line-height: 19px;
+  line-height: 28px;
   padding: 9px 10px 11px;
 }
 

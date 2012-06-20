@@ -4,6 +4,7 @@
       %th Title
       %th Description 
       %th Categories 
+      %th File 
   %tbody
     - @content_files.each do |content|
       %tr
@@ -14,6 +15,8 @@
         %td
           - content.categories.each do |category|
             = category.name
+        %td 
+          = link_to "Download File", download_file_url(:id => content.id), :class => "btn"
         %td 
           .btn
             Preview

@@ -1,7 +1,7 @@
 %header.navbar.navbar-fixed-top
   .navbar-inner
     .container
-      = link_to "Care Content", root_url, :id => "logo"
+      = link_to(image_tag('logo.png', :alt => "Care Content"), root_url, :id => "logo")
       %nav
         %ul.nav.pull-right
           %li= link_to "Home", root_url
