@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 %html
   %head
+    %link{:href => 'http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600', :rel=>'stylesheet', :type=>'text/css'}
     %title 
       = @title.nil? ? "Care Content" : @title 
     = stylesheet_link_tag    "application"
@@ -15,8 +16,8 @@
       - if !(flash.empty?)
         - flash.each do |key, value|
           - if key == 'notice'
-            %p.notice= notice 
+            %p.notice= value 
           - elsif key == 'alert'
-            %p.alert= alert
+            %p.alert= value 
       = yield
       = render :partial => 'layouts/footer'

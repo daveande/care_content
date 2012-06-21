@@ -6,23 +6,20 @@
       %th Categories 
       %th File 
   %tbody
-    - @content_files.each do |content|
+    - @content_files.each_with_index do |content, i|
       %tr
         %td 
           = content.title
         %td 
           = content.description
         %td
-          - content.categories.each do |category|
-            = category.name
-        %td 
-          = link_to "Download File", download_file_url(:id => content.id), :class => "btn"
+          = content.categories.collect(&:name).join(', ')
         %td 
           .btn
             Preview
         %td
-          .btn
-            Download
+          = link_to "Download", download_file_url(:id => content.id), :class => "btn" unless content.word_file.to_s.nil?
+
 
 
 

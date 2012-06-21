@@ -1,0 +1,17 @@
+= semantic_form_for [:admin, @content_file] do |f|
+  = f.inputs do
+    = f.input :title, :required => true
+    = f.input :description
+    = f.input :categories, :as => :check_boxes
+    %li{:style => "margin: 0px 0px -15px 20%"}
+      %p
+        Current File:
+        = @content_file.word_file_url.to_s 
+    = f.input :word_file, :as => :file, :hint => "must be a .doc or .docx file"
+    %li{:style => "margin: 0px 0px -15px 20%"}
+      %p
+        Current File:
+        = @content_file.dreamweaver_file_url.to_s 
+    = f.input :dreamweaver_file, :as => :file, :hint => "must be a .htm file"
+  =  f.buttons
+
