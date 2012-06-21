@@ -1,4 +1,5 @@
 ActiveAdmin.register User do
+  actions :index, :show, :destroy
   index do 
     column :first_name
     column :last_name

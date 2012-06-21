@@ -2,7 +2,6 @@ ActiveAdmin.register ContentFile do
   index do
     column :title
     column :description
-    column :service_area
     column "Categories" do |content_file|
       content_file.categories.collect(&:name).join(', ') 
     end
@@ -16,6 +15,14 @@ ActiveAdmin.register ContentFile do
         link_to "Download", download_file_url(:id => content_file.id)
       end
     end
+    column :service_area
+    column "Downloads" do |content_file|
+      if content_file.downloads.empty?
+        "-"
+      else
+        link_to content_file.downloads.count, admin_downloads_url
+      end
+    end 
     default_actions
   end
 
@@ -23,16 +30,7 @@ ActiveAdmin.register ContentFile do
   filter :title
   filter :description
 
-  form do |f|
-    f.inputs do
-        f.input :title, :required => true
-        f.input :description
-        f.input :categories, :as => :check_boxes
-        f.input :word_file, :as => :file, :hint => "must be a .doc or .docx file"
-        f.input :dreamweaver_file, :as => :file, :hint => "must be a .htm file"
-    end
-      f.buttons
-  end
+  form :partial => "form"
 
   
 end
