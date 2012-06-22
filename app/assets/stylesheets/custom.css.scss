@@ -41,9 +41,10 @@ p {
 /* Content Index */
 
 .content_summary {
-  height: 180px;
+  height: 210px;
   margin-top: 15px;
   border-bottom: 1px dashed gray;
+  margin-left: 10px;
 }
 
 .content_title {
@@ -55,16 +56,12 @@ p {
 }
 
 .content_categories {
-
+  float: right;
+  font-size: 10px;
 }
 
-.icon-download:hover {
-  cursor: pointer;
-}
-
-.download_text {
-  margin-left: 15px;
-  display: block;
+.content-action-bar {
+  padding: 5px 15px;
 }
 
 /* footer */

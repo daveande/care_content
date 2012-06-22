@@ -1,15 +1,27 @@
 .row
-  - @content_files.each do |content|
-    .span6.content_summary
-      %h3.content_title
-        = content.title
-      %p.content_description
-        = content.description
-      %p.content_categories
-        = content.categories.collect(&:name).join(', ')
-      %i.icon-download
-        .download_text
-          = link_to "Download", download_file_url(:id => content.id)
+  .span2
+    %ul.nav.nav-list
+      .nav-header
+        Categories
+        - @categories.each do |category|
+          .li
+            = link_to category.name, content_files_url(:category => category.id)
+
+  .span10
+    - @content_files.each do |content|
+      .span5.content_summary
+        %h3.content_title
+          = content.title
+        %p.content_description
+          = content.description
+        .content-action-bar.well
+          - if !content.word_file_url.to_s.nil?
+            %a.btn.btn-small{:href => "http://localhost:3000/download_file?id=#{content.id}"}
+              %i.icon-download
+              Download
+          %p.content_categories
+            - content.categories.each do |tag|
+              = link_to "#{tag.name} | ", content_files_url(:category => tag.id)
         
   
 
