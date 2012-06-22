@@ -32,5 +32,25 @@ ActiveAdmin.register ContentFile do
 
   form :partial => "form"
 
+  show do |content_file|
+   attributes_table do
+     row :title
+     row :description
+     row "Categories" do |f|
+       f.categories.collect(&:name).join(', ')
+     end
+     row "Downloads" do |f|
+       f.downloads.empty? ? '-' : f.downloads.count
+     end
+     row :service_area
+     row :word_file
+     row :dreamweaver_file
+     row :created_at
+     row :updated_at
+     
+   end 
+
+  end
+
   
 end
