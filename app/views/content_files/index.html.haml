@@ -1,25 +1,17 @@
-%table.table
-  %thead
-    %tr
-      %th Title
-      %th Description 
-      %th Categories 
-      %th File 
-  %tbody
-    - @content_files.each_with_index do |content, i|
-      %tr
-        %td 
-          = content.title
-        %td 
-          = content.description
-        %td
-          = content.categories.collect(&:name).join(', ')
-        %td 
-          .btn
-            Preview
-        %td
-          = link_to "Download", download_file_url(:id => content.id), :class => "btn" unless content.word_file.to_s.nil?
-
+.row
+  - @content_files.each do |content|
+    .span6.content_summary
+      %h3.content_title
+        = content.title
+      %p.content_description
+        = content.description
+      %p.content_categories
+        = content.categories.collect(&:name).join(', ')
+      %i.icon-download
+        .download_text
+          = link_to "Download", download_file_url(:id => content.id)
+        
+  
 
 
 

@@ -38,6 +38,35 @@ p {
   padding: 9px 10px 11px;
 }
 
+/* Content Index */
+
+.content_summary {
+  height: 180px;
+  margin-top: 15px;
+  border-bottom: 1px dashed gray;
+}
+
+.content_title {
+  text-transform: uppercase;
+}
+
+.content_description {
+
+}
+
+.content_categories {
+
+}
+
+.icon-download:hover {
+  cursor: pointer;
+}
+
+.download_text {
+  margin-left: 15px;
+  display: block;
+}
+
 /* footer */
 
 footer {

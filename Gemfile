@@ -8,6 +8,7 @@ gem 'devise'
 gem 'activeadmin'
 gem 'meta_search'
 gem 'carrierwave'
+gem 'rubyzip'
 
 group :development, :test do
   gem 'sqlite3'
