@@ -4,10 +4,19 @@
     <div class="span2">
       <ul class="nav nav-list">
         <div class="nav-header">
-          Categories
+          <i class="icon-bookmark"></i>
+           Categories
           <% @categories.each do |category| %>
             <li><%= link_to category.name, content_files_url(:category => category.id)%></li>
           <% end %>
+        </div>
+        <div class="nav-header">
+          <i class="icon-user"></i> 
+           Profile
+        </div>
+        <div class="nav-header">
+          <i class="icon-bullhorn"></i> 
+           Feedback/Suggestions 
         </div>
       </ul>
     </div>

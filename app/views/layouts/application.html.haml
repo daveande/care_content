@@ -11,7 +11,10 @@
       %script(src="http://html5shim.googlecode.com/svn/trunk/html5.js")
 
   %body
-    = render :partial => 'layouts/header'
+    - if @current_controller == "content_files"
+      = render :partial => 'layouts/header', :locals => {:wide => true}
+    -else
+      = render :partial => 'layouts/header', :locals => {:wide => false}
     .container
       .row
         - if !(flash.empty?)
@@ -21,4 +24,7 @@
             - elsif key == 'alert'
               %p.alert= value 
     = yield
-    = render :partial => 'layouts/footer'
+    - if @current_controller == "content_files"
+      = render :partial => 'layouts/footer', :locals => {:wide => true}
+    - else
+      = render :partial => 'layouts/footer', :locals => {:wide => false} 
