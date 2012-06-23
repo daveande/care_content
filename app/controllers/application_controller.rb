@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
+  before_filter :set_controller_and_action_names
   
   def download_file
     @content_file = ContentFile.find(params[:id])
@@ -11,6 +12,11 @@ class ApplicationController < ActionController::Base
       send_file "public" + @content_file.word_file_url.to_s
       @download = Download.create(:user_id => current_user.id, :content_file_id => @content_file.id)
     end
+  end
+
+  def set_controller_and_action_names
+    @current_controller = controller_name
+    @current_action     = action_name
   end
 
 end
