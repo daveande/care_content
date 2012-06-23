@@ -1,9 +1,14 @@
 $btnPrimaryBackground: #f23a36;
+$linkColor: #f23a36; 
 @import "bootstrap";
 
 body {
   padding-top: 50px;
   background-color: #F8F8F8;
+}
+ 
+a:hover {
+  text-decoration: none;
 }
 
 
@@ -85,6 +90,20 @@ body {
   }
   a {
     color: #f23a36;
+  }
+}
+
+.sign_in_out {
+  margin-top: 35px;
+}
+
+#about {
+  margin-top: 35px;
+  img {
+    border: 3px solid white;
+    box-shadow: 0 0 5px black;
+    -webkit-box-shadow: 0 0 5px black;
+    
   }
 }
 
