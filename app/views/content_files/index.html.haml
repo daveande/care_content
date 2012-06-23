@@ -8,7 +8,7 @@
             = link_to category.name, content_files_url(:category => category.id)
 
   .span10
-    - @content_files.each do |content|
+    - @content_files.each_with_index do |content, i|
       .span5.content_summary
         %h3.content_title
           = content.title
@@ -22,9 +22,3 @@
           %p.content_categories
             - content.categories.each do |tag|
               = link_to "#{tag.name} | ", content_files_url(:category => tag.id)
-        
-  
-
-
-
-

@@ -1,0 +1,46 @@
+<div id="content_files">
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span2">
+      <ul class="nav nav-list">
+        <div class="nav-header">
+          Categories
+          <% @categories.each do |category| %>
+            <li><%= link_to category.name, content_files_url(:category => category.id)%></li>
+          <% end %>
+        </div>
+      </ul>
+    </div>
+        <div class="span10">
+    <% @content_files.each_with_index do |content, i| %>
+      <% if i.even? %>
+        <div class="row-fluid">
+      <% end %>
+          <div class="span6 content_summary">
+            <h3 class="content_title"><%= content.title %></h3>
+            <p class="content_description"><%= content.description %></p>
+            <div class="content-action-bar well">
+              <% if !content.word_file_url.to_s.nil? %>
+                <a href="http://localhost:3000/download_file?id=#{content.id}", class="btn btn-small">
+                  <i class="icon-download"></i>
+                  Download
+                </a>
+              <% end %>
+              <div class="content_categories">
+                <% content.categories.each do |tag| %>
+                  <%= link_to "#{tag.name} | ", content_files_url(:category => tag.id) %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+      <% if !i.even? %>
+        </div>
+      <% end %>
+    <% end %>
+        </div>
+  </div>
+</div>
+</div>
+
+
+

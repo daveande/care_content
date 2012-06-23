@@ -13,11 +13,12 @@
   %body
     = render :partial => 'layouts/header'
     .container
-      - if !(flash.empty?)
-        - flash.each do |key, value|
-          - if key == 'notice'
-            %p.notice= value 
-          - elsif key == 'alert'
-            %p.alert= value 
-      = yield
-      = render :partial => 'layouts/footer'
+      .row
+        - if !(flash.empty?)
+          - flash.each do |key, value|
+            - if key == 'notice'
+              %p.notice= value 
+            - elsif key == 'alert'
+              %p.alert= value 
+    = yield
+    = render :partial => 'layouts/footer'
