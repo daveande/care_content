@@ -1,20 +1,24 @@
-<h2>Sign in</h2>
-<div class="row">
-<div class="span5">
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => "well"}) do |f| %>
-      <%= f.label :email %>
-        <%= f.email_field :email %>
-      <%= f.label :password %>
-        <%= f.password_field :password %>
+<div class="container">
+  <div class="sign_in_out">
+    <h2>Sign in</h2>
+      <div class="row">
+        <div class="span5">
+        <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => "well"}) do |f| %>
+              <%= f.label :email %>
+                <%= f.email_field :email %>
+              <%= f.label :password %>
+                <%= f.password_field :password %>
 
-  <% if devise_mapping.rememberable? -%>
-    <label class="checkbox">
-        <%= f.check_box :remember_me %> Remember me
-    </label>
-  <% end -%>
-    <%= f.submit "Sign in", :class => 'btn btn-info' %>
-<% end %>
-<%= render "links" %>
+          <% if devise_mapping.rememberable? -%>
+            <label class="checkbox">
+                <%= f.check_box :remember_me %> Remember me
+            </label>
+          <% end -%>
+            <%= f.submit "Sign in", :class => 'btn btn-primary' %>
+        <% end %>
+        <%= render "links" %>
 
-</div>
+        </div>
+      </div>
+  </div>
 </div>
