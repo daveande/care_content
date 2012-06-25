@@ -3,8 +3,12 @@ CareContent::Application.routes.draw do
 
   devise_for :admin_users, ActiveAdmin::Devise.config
 
-  devise_for :users
-  
+  devise_for :users, :skip => [:registrations] 
+  as :user do
+    get 'users/edit' => 'devise/registrations#edit', :as => 'edit_user_registration'
+    put 'users' => 'devise/registrations#update', :as => 'user_registration'
+  end
+   
   root :to => 'pages#home'
   match '/about' => "pages#about"
   get '/download_file' => "content_files#download_file"
