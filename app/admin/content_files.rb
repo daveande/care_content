@@ -7,12 +7,12 @@ ActiveAdmin.register ContentFile do
     end
     column "Word File" do |content_file|
       if !content_file.word_file.to_s.nil?
-        link_to "Download", download_file_url(:id => content_file.id)
+        link_to "Download", download_file_url(:id => content_file.id, :type => "word")
       end
     end
     column "DreamWeaver File" do |content_file|
       if !content_file.dreamweaver_file.to_s.nil?
-        link_to "Download", download_file_url(:id => content_file.id)
+        link_to "Download", download_file_url(:id => content_file.id, :type => "dreamweaver")
       end
     end
     column :service_area
