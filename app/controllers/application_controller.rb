@@ -19,4 +19,7 @@ class ApplicationController < ActionController::Base
     @current_action     = action_name
   end
 
+  def after_sign_in_path_for(user)
+    content_files_url 
+  end
 end
