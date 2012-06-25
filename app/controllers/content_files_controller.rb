@@ -1,6 +1,10 @@
 class ContentFilesController < ApplicationController
   def index
-    @content_files = ContentFile.all
+    if params[:category]
+      @content_files = ContentFile.joins(:categories).where(:categories => {:id => params[:category]})
+    else
+      @content_files = ContentFile.all
+    end
     @categories = Category.all
   end
 
