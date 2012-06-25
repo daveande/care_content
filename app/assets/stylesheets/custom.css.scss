@@ -11,6 +11,10 @@ a:hover {
   text-decoration: none;
 }
 
+p {
+  color: #898989;
+}
+
 
 #logo {
   float: left;
@@ -124,6 +128,7 @@ a:hover {
   li {
     font-size: 15px;
     line-height: 30px;
+    color: #898989;
   }
   #faq {
     margin-left: 60px;
@@ -135,6 +140,9 @@ a:hover {
     h3 {
       text-transform: uppercase;
       text-align: center;
+    }
+    p {
+      color: white;
     }
   }
 }
@@ -173,6 +181,15 @@ a:hover {
   position: absolute;
   bottom: 0;
   width: 85%;
+}
+
+.nav .nav-header {
+  margin-bottom: 20px;
+}
+.sidebar_links {
+  text-transform: none;
+  text-shadow: none;
+  font-weight: normal;
 }
 
 /* footer */
