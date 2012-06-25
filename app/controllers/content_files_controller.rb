@@ -1,4 +1,6 @@
 class ContentFilesController < ApplicationController
+  before_filter :authenticate_user!
+
   def index
     if params[:category]
       @content_files = ContentFile.joins(:categories).where(:categories => {:id => params[:category]})
