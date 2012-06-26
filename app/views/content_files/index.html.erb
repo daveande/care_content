@@ -3,23 +3,33 @@
   <div class="row-fluid">
     <div class="span2">
       <ul class="nav nav-list">
-        <div class="nav-header">
+        <li class="nav-header">
           <i class="icon-bookmark"></i>
-           Categories
-          <% @categories.each do |category| %>
-            <li><%= link_to category.name, content_files_url(:category => category.id)%></li>
-          <% end %>
-        </div>
-        <div class="nav-header">
+            Categories
+        </li>
+        <li id="sidebar_all">
+          <%= link_to "All", content_files_url %>
+        </li>
+        <% @categories.each do |category| %>
+          <li id="sidebar_<%= category.id %>"><%= link_to category.name, content_files_url(:category => category.id)%></li>
+        <% end %>
+        <li class="divider"></li>
+      </ul>
+      <ul class="nav nav-list">
+        <li class="nav-header">
           <i class="icon-user"></i> 
            Profile
-           <li><%= link_to "Edit Profile/Change Password", "#myModal", :class => "sidebar_links", "data-toggle" => "modal" %></li>
-        </div>
-        <div class="nav-header">
+        </li>
+        <li><%= link_to "Edit Profile/Change Password", "#myModal", :class => "sidebar_links", "data-toggle" => "modal" %></li>
+        <li class="divider"></li>
+      </ul>
+      <ul class="nav nav-list">
+        <li class="nav-header">
           <i class="icon-bullhorn"></i> 
            Suggestions 
-           <li><%= link_to "Send Feedback/Suggestions", "#", :class => "sidebar_links" %></li>
-        </div>
+        </li>
+        <li><%= link_to "Send Feedback/Suggestions", "#", :class => "sidebar_links" %></li>
+        <li class="divider"></li>
       </ul>
     </div>
         <div class="span10">
@@ -32,7 +42,7 @@
             <p class="content_description"><%= content.description %></p>
             <div class="content-action-bar well">
               <% if !content.word_file_url.to_s.nil? %>
-                <a href="http://localhost:3000/download_file?id=#{content.id}", class="btn btn-small">
+                <a href="http://localhost:3000/download_file?id=<%= content.id %>", class="btn btn-small">
                   <i class="icon-download"></i>
                   Download
                 </a>
