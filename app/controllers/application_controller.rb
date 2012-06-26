@@ -12,6 +12,7 @@ class ApplicationController < ActionController::Base
         flash[:success] = "Thanks for downloading the file"
         send_file "public" + @content_file.word_file_url.to_s
         @download = Download.create(:user_id => current_user.id, :content_file_id => @content_file.id)
+        redirect_to content_files_url
       end
     elsif params[:type] == "dreamweaver"
       if @content_file.dreamweaver_file.to_s.nil?
@@ -21,7 +22,11 @@ class ApplicationController < ActionController::Base
         flash[:success] = "Thanks for downloading the file"
         send_file "public" + @content_file.dreamweaver_file_url.to_s
         @download = Download.create(:user_id => current_user.id, :content_file_id => @content_file.id)
+        redirect_to content_files_url
       end
+    else
+      flash[:notice] = "There was a problem downloading the file"
+      redirect_to content_files_url
     end
   end
 
