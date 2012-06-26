@@ -17,12 +17,12 @@
       = render :partial => 'layouts/header', :locals => {:wide => false}
     .container
       .row
-        - if !(flash.empty?)
-          - flash.each do |key, value|
-            - if key == 'notice'
-              %p.notice= value 
-            - elsif key == 'alert'
-              %p.alert= value 
+        -if flash[:notice].present?
+          .alert= flash[:notice]
+        -elsif flash[:alert].present?
+          .alert.alert-error= flash[:alert]
+        -if flash[:success].present?
+          .alert.alert-success= flash[:success]
     = yield
     - if @current_controller == "content_files"
       = render :partial => 'layouts/footer', :locals => {:wide => true}
