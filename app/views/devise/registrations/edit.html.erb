@@ -9,14 +9,14 @@
     <div class="control-group">
       <%= f.label :first_name, :class => "control-label", :for => "first_name" %>
       <div class="controls">
-        <%= f.password_field :first_name, :autocomplete => "off", :id => "first_name" %>
+        <%= f.text_field :first_name, :autocomplete => "off", :id => "first_name" %>
       </div>
     </div>
 
     <div class="control-group">
       <%= f.label :last_name, :class => "control-label", :for => "last_name" %>
       <div class="controls">
-        <%= f.password_field :last_name, :autocomplete => "off", :id => "last_name" %>
+        <%= f.text_field :last_name, :autocomplete => "off", :id => "last_name" %>
       </div>
     </div>
 
@@ -62,9 +62,11 @@
 
     <div class="form-actions">
       <%= f.submit "Update", :class => "btn btn-primary" %>
+      <div id="cancel_account">
+        <h5>Cancel my account</h5>
+        <p>Please send an email if you'd like to cancel your account.</p>
+      </div>
     </div>
   <% end %>
-  <h3>Cancel my account</h3>
-  <p>Please send an email if you'd like to cancel your account.</p>
 </div>
 </div>
