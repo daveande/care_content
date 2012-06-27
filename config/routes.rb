@@ -11,6 +11,7 @@ CareContent::Application.routes.draw do
    
   root :to => 'pages#home'
   match '/about' => "pages#about"
+  match '/suggestions' => "pages#suggestions"
   get '/download_file' => "content_files#download_file"
   resources :content_files, :only => [:index, :show]
 
