@@ -8,4 +8,11 @@ class PagesController < ApplicationController
     @title = "About | Care Content"
   end
 
+  def suggestions
+    SuggestionsMailer.suggestion_email(params[:email], params[:suggestion]).deliver
+    flash[:success] = "Your message has been sent. Thanks for your feedback!"
+    redirect_to content_files_url
+
+  end
+
 end

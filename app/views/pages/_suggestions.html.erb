@@ -1,0 +1,20 @@
+<div class="modal-header">
+  <button class="close" type="button" data-dismiss="modal">x</button>
+  <h3>Send us your suggestions for content</h3>
+</div>
+
+<div class="modal-body">
+  <%= form_tag('/suggestions') do %> 
+    <%= label_tag(:email) %>
+    <%= text_field_tag(:email) %>
+    <%= label_tag(:suggestion) %>
+    <%= text_area_tag(:suggestion, nil, :rows => 10) %>
+</div>
+      
+<div class="modal-footer">
+  <div class="btn" data-dismiss="modal">
+    <%= link_to "Close", "#" %>
+  </div>
+    <%= submit_tag("Submit", :class => "btn") %>
+</div>
+<% end %>
