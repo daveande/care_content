@@ -153,6 +153,23 @@ p {
   }
 }
 
+#contact_form {
+  margin-top: 30px;
+  p {
+    color: #569c91;
+    font-weight: bold;
+  }
+  input {
+    width: 100%;
+  }
+  textarea {
+    width: 100%;
+  }
+  input[type='submit'] {
+    width: auto;
+  }
+}
+
 /* Content Index */
 
 #content_files {
@@ -160,7 +177,7 @@ p {
 }
 
 .content_summary {
-  height: 215px;
+  height: 225px;
   margin-bottom: 15px;
   margin-left: 10px;
   box-shadow: 0px 0px 10px black;
@@ -178,15 +195,13 @@ p {
 }
 
 .content_categories {
-  float: right;
   font-size: 10px;
 }
 
 .content-action-bar {
-  padding: 5px 15px;
+  padding: 10px 0px;
   position: absolute;
   bottom: 0;
-  width: 85%;
 }
 
 .sidebar_links {
