@@ -1,0 +1,21 @@
+$('#content_files').html("<%= escape_javascript(render :partial => 'content_files/content_files')%>");
+
+<% @content_files.each do |content| %>
+  <% if !content.preview_text.nil? %>
+      $('#content_description_<%= content.id %>').popover({title: "<%= content.title %>", content: "<%= content.preview_text %>", placement: 'bottom'});
+  <% end %>
+<% end %>
+
+<% if @category == 'all' %>
+  $('#sidebar_all').addClass('current_filter');
+<% else %>
+  $('#sidebar_all').removeClass('current_filter');
+  <% @categories.each do |category| %>
+    <% if category.id == @category %>
+      $('#sidebar_<%= category.id %>').addClass('current_filter');
+    <% else %>
+      $('#sidebar_<%= category.id %>').removeClass('current_filter');
+    <% end %>
+  <% end %>
+<% end %>
+

@@ -1,0 +1,86 @@
+<div id="content_files">
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span2">
+      <ul class="nav nav-list">
+        <li class="nav-header">
+          <i class="icon-bookmark"></i>
+            Categories
+        </li>
+        <li id="sidebar_all">
+        <%= link_to "All", content_files_url, :remote => true %>
+        </li>
+        <% @categories.each do |category| %>
+          <li id="sidebar_<%= category.id %>"><%= link_to category.name, content_files_url(:category => category.id), :remote => true %></li>
+        <% end %>
+        <li class="divider"></li>
+      </ul>
+      <ul class="nav nav-list">
+        <li class="nav-header">
+          <i class="icon-user"></i> 
+           Profile
+        </li>
+        <li><%= link_to "Edit Profile/Change Password", "#myModal", :class => "sidebar_links", "data-toggle" => "modal" %></li>
+        <li class="divider"></li>
+      </ul>
+      <ul class="nav nav-list">
+        <li class="nav-header">
+          <i class="icon-bullhorn"></i> 
+           Suggestions 
+        </li>
+        <li><%= link_to "Send Feedback/Suggestions", "#contactModal", :class => "sidebar_links", "data-toggle" => "modal" %></li>
+        <li class="divider"></li>
+      </ul>
+    </div>
+        <div class="span10">
+    <% @content_files.each_with_index do |content, i| %>
+      <% if i.even? %>
+        <div class="row-fluid">
+      <% end %>
+          <div class="span6 content_summary">
+            <h3 class="content_title"><%= content.title %></h3>
+            <p class="content_description" id="content_description_<%= content.id %>"><%= content.description %></p>
+            <div class="content_categories">
+                <% count = content.categories.count %>
+                <% content.categories.each_with_index do |tag, i| %>
+                  <% index = i + 1 %>
+                  <% if index == count %>
+                    <%= link_to "#{tag.name}", content_files_url(:category => tag.id), :remote => true %>
+                  <% else %>
+                    <%= link_to "#{tag.name} | ", content_files_url(:category => tag.id), :remote => true %>
+                  <% end %>
+                <% end %>
+              </div>
+            <div class="content-action-bar">
+              <% if !content.word_file.to_s.nil? %>
+                <a href="http://localhost:3000/download_file?id=<%= content.id %>&type=word", class="btn btn-small btn-primary">
+                  <i class="icon-download icon-white"></i>
+                  Download Word File
+                </a>
+              <% end %>
+              <% if !content.dreamweaver_file.to_s.nil? %>
+                <a href="http://localhost:3000/download_file?id=<%= content.id %>&type=dreamweaver", class="btn btn-small btn-primary">
+                  <i class="icon-download icon-white"></i>
+                  Download Dreamweaver File
+                </a>
+              <% end %>
+            </div>
+          </div>
+      <% if !i.even? %>
+        </div>
+      <% end %>
+    <% end %>
+        </div>
+  </div>
+</div>
+</div>
+
+
+<div class="modal fade hide" id="myModal">
+  <%= render 'users/registrations_edit' %>
+</div>
+
+<div class="modal fade hide" id="contactModal">
+  <%= render 'pages/suggestions' %>
+</div>
+
