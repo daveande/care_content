@@ -36,6 +36,7 @@ ActiveAdmin.register ContentFile do
    attributes_table do
      row :title
      row :description
+     row :preview_text
      row "Categories" do |f|
        f.categories.collect(&:name).join(', ')
      end
