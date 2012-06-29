@@ -7,22 +7,22 @@ class ApplicationController < ActionController::Base
     if params[:type] == "word"
       if @content_file.word_file.to_s.nil?
         flash[:notice] = "This file cannot be downloaded"
-        redirect_to content_files_url
       else
         flash[:success] = "Thanks for downloading the file"
         send_file "public" + @content_file.word_file_url.to_s
         @download = Download.create(:user_id => current_user.id, :content_file_id => @content_file.id)
-        redirect_to content_files_url
+        @content_file.service_area_id = current_user.hospital.service_area_id
+        @content_file.save
       end
     elsif params[:type] == "dreamweaver"
       if @content_file.dreamweaver_file.to_s.nil?
         flash[:notice] = "This file cannot be downloaded"
-        redirect_to content_files_url
       else
         flash[:success] = "Thanks for downloading the file"
-        send_file "public" + @content_file.dreamweaver_file_url.to_s
+        send_file("public" + @content_file.dreamweaver_file_url.to_s, :disposition => 'attachment')
         @download = Download.create(:user_id => current_user.id, :content_file_id => @content_file.id)
-        redirect_to content_files_url
+        @content_file.service_area_id = current_user.hospital.service_area_id
+        @content_file.save
       end
     else
       flash[:notice] = "There was a problem downloading the file"
