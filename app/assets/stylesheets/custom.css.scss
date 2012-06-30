@@ -186,6 +186,11 @@ p {
   position: relative;
 }
 
+.downloaded {
+  background: blanchedAlmond;
+  opacity: 0.4;
+}
+
 .content_title {
   text-transform: uppercase;
 }
@@ -196,6 +201,15 @@ p {
 
 .content_categories {
   font-size: 10px;
+}
+
+.nav-list > .no_filter > li > a {
+  background: blue;
+}
+
+a.current_filter {
+  background: #F23A36;
+  color: white;
 }
 
 .content-action-bar {

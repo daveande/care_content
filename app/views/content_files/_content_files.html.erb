@@ -8,10 +8,18 @@
             Categories
         </li>
         <li id="sidebar_all">
-        <%= link_to "All", content_files_url, :remote => true %>
+          <% if @category == 'all' %>
+            <%= link_to "All", content_files_url, :class => "current_filter", :remote => true %>
+          <% else %>
+            <%= link_to "All", content_files_url, :remote => true %>
+          <% end %>
         </li>
         <% @categories.each do |category| %>
-          <li id="sidebar_<%= category.id %>"><%= link_to category.name, content_files_url(:category => category.id), :remote => true %></li>
+          <% if @category == category.id.to_s %>
+            <li id="sidebar_<%= category.id %>"><%= link_to category.name, content_files_url(:category => category.id), :class => "current_filter", :remote => true %></li>
+          <% else %>
+            <li id="sidebar_<%= category.id %>"><%= link_to category.name, content_files_url(:category => category.id), :remote => true %></li>
+          <% end %>
         <% end %>
         <li class="divider"></li>
       </ul>
@@ -30,9 +38,16 @@
         </li>
         <li><%= link_to "Send Feedback/Suggestions", "#contactModal", :class => "sidebar_links", "data-toggle" => "modal" %></li>
         <li class="divider"></li>
+        <li class="nav-header">
+          <i class="icon-download"></i>
+            Your Downloads 
+        </li>
+        <li><%= link_to "See your downloads", "#", :class => "sidebar_links", :id => "see_downloads" %></li>
+        <li>Total Downloads: <%= @your_downloads.count %></li>
+        <li class="divider"></li>
       </ul>
     </div>
-        <div class="span10">
+    <div class="span10">
     <% @content_files.each_with_index do |content, i| %>
       <% if i.even? %>
         <div class="row-fluid">
@@ -70,7 +85,57 @@
         </div>
       <% end %>
     <% end %>
+  </div>
+</div>
+  <hr />
+<div class="row-fluid">
+  <div class="span2">
+    <ul class="nav nav-list">
+      <li class="nav-header">
+        <i class="icon-download"></i>
+          Your Downloads 
+      </li>
+    </ul>
+  </div>
+  <div class="span10" id="downloads_section">
+    <% @your_downloads.each_with_index do |downloaded_file, i| %>
+      <% if i.even? %>
+        <div class="row-fluid">
+      <% end %>
+          <div class="span6 content_summary downloaded">
+            <h3 class="content_title"><%= downloaded_file.title %></h3>
+            <p class="content_description" id="content_description_<%= downloaded_file.id %>"><%= downloaded_file.description %></p>
+            <div class="content_categories">
+                <% count = downloaded_file.categories.count %>
+                <% downloaded_file.categories.each_with_index do |tag, i| %>
+                  <% index = i + 1 %>
+                  <% if index == count %>
+                    <%= link_to "#{tag.name}", content_files_url(:category => tag.id), :remote => true %>
+                  <% else %>
+                    <%= link_to "#{tag.name} | ", content_files_url(:category => tag.id), :remote => true %>
+                  <% end %>
+                <% end %>
+              </div>
+            <div class="content-action-bar">
+              <% if !downloaded_file.word_file.to_s.nil? %>
+                <a href="http://localhost:3000/download_file?id=<%= downloaded_file.id %>&type=word", class="btn btn-small btn-primary">
+                  <i class="icon-download icon-white"></i>
+                  Download Word File
+                </a>
+              <% end %>
+              <% if !downloaded_file.dreamweaver_file.to_s.nil? %>
+                <a href="http://localhost:3000/download_file?id=<%= downloaded_file.id %>&type=dreamweaver", class="btn btn-small btn-primary">
+                  <i class="icon-download icon-white"></i>
+                  Download Dreamweaver File
+                </a>
+              <% end %>
+            </div>
+          </div>
+      <% if !i.even? %>
         </div>
+      <% end %>
+      
+    <% end %>
   </div>
 </div>
 </div>

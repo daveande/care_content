@@ -8,3 +8,10 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require_tree .
+
+$(document).ready(function(){
+  $('#see_downloads').click(function(){
+    $('html, body').animate({ scrollTop: $('#downloads_section').offset().top }, 500);
+    t.preventDefault();
+  });
+});

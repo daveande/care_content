@@ -19,3 +19,7 @@ $('#content_files').html("<%= escape_javascript(render :partial => 'content_file
   <% end %>
 <% end %>
 
+  $('#see_downloads').click(function(){
+    $('html, body').animate({ scrollTop: $('#downloads_section').offset().top }, 500);
+    t.preventDefault();
+  });

@@ -8,7 +8,6 @@ class ContentFile < ActiveRecord::Base
 
   validates :title, :presence => true
   validates :description, :presence => true
-  validates :title, :presence => true
   
   mount_uploader :word_file, WordContentFileUploader
   mount_uploader :dreamweaver_file, DreamWeaverContentFileUploaderUploader
