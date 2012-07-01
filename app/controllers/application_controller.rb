@@ -36,6 +36,11 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(user)
-    content_files_url 
+    if user.class.to_s == "AdminUser"
+      admin_dashboard_url
+    else
+      content_files_url 
+    end
   end
+
 end

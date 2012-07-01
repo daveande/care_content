@@ -1,4 +1,5 @@
 CareContent::Application.routes.draw do
+  root :to => 'pages#home'
   ActiveAdmin.routes(self)
 
   devise_for :admin_users, ActiveAdmin::Devise.config
@@ -8,8 +9,8 @@ CareContent::Application.routes.draw do
     get 'users/edit' => 'devise/registrations#edit', :as => 'edit_user_registration'
     put 'users' => 'devise/registrations#update', :as => 'user_registration'
   end
+
    
-  root :to => 'pages#home'
   match '/about' => "pages#about"
   match '/suggestions' => "pages#suggestions"
   match '/contact' => "pages#contact"
