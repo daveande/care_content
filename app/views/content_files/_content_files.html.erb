@@ -118,13 +118,13 @@
               </div>
             <div class="content-action-bar">
               <% if !downloaded_file.word_file.to_s.nil? %>
-                <a href="http://localhost:3000/download_file?id=<%= downloaded_file.id %>&type=word", class="btn btn-small btn-primary">
+                <a href="http://www.carecontent.com/download_file?id=<%= downloaded_file.id %>&type=word" class="btn btn-small btn-primary">
                   <i class="icon-download icon-white"></i>
                   Download Word File
                 </a>
               <% end %>
               <% if !downloaded_file.dreamweaver_file.to_s.nil? %>
-                <a href="http://localhost:3000/download_file?id=<%= downloaded_file.id %>&type=dreamweaver", class="btn btn-small btn-primary">
+                <a href="http://www.carecontent.com/download_file?id=<%= downloaded_file.id %>&type=dreamweaver" class="btn btn-small btn-primary">
                   <i class="icon-download icon-white"></i>
                   Download Dreamweaver File
                 </a>
