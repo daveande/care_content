@@ -4,7 +4,7 @@ class ContentFile < ActiveRecord::Base
   belongs_to :service_area
   has_many :downloads
 
-  attr_accessible :service_area_id, :preview_text, :category_ids, :title, :description, :word_file, :dreamweaver_file
+  attr_accessible :service_area_id, :preview_text, :category_ids, :title, :description, :word_file, :remove_word_file, :dreamweaver_file, :remove_dreamweaver_file
 
   validates :title, :presence => true
   validates :description, :presence => true
