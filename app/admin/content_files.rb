@@ -7,12 +7,12 @@ ActiveAdmin.register ContentFile do
     end
     column "Word File" do |content_file|
       if !content_file.word_file.to_s.nil?
-        link_to "Download", download_file_url(:id => content_file.id, :type => "word")
+        link_to "Download", admin_download_file_url(:id => content_file.id, :type => "word")
       end
     end
     column "DreamWeaver File" do |content_file|
       if !content_file.dreamweaver_file.to_s.nil?
-        link_to "Download", download_file_url(:id => content_file.id, :type => "dreamweaver")
+        link_to "Download", admin_download_file_url(:id => content_file.id, :type => "dreamweaver")
       end
     end
     column :service_area
@@ -48,10 +48,30 @@ ActiveAdmin.register ContentFile do
      row :dreamweaver_file
      row :created_at
      row :updated_at
-     
    end 
-
   end
 
+  controller do 
+    def admin_download_file
+      @content_file = ContentFile.find(params[:id])
+      if params[:type] == "word"
+        if @content_file.word_file.to_s.nil?
+          flash[:notice] = "This file cannot be downloaded"
+        else
+          send_file "public" + @content_file.word_file_url.to_s
+        end
+      elsif params[:type] == "dreamweaver"
+        if @content_file.dreamweaver_file.to_s.nil?
+          flash[:notice] = "This file cannot be downloaded"
+        else
+          send_file("public" + @content_file.dreamweaver_file_url.to_s, :disposition => 'attachment')
+        end
+      else
+        flash[:notice] = "There was a problem downloading the file"
+        redirect_to content_files_url
+      end
+
+    end
+  end
   
 end

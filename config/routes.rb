@@ -10,6 +10,11 @@ CareContent::Application.routes.draw do
     put 'users' => 'devise/registrations#update', :as => 'user_registration'
   end
 
+  as :admin_user do 
+    get '/admin_download_file' => 'admin/content_files#admin_download_file'
+  end
+
+
    
   match '/about' => "pages#about"
   match '/suggestions' => "pages#suggestions"
