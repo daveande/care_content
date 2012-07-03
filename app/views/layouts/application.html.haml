@@ -9,6 +9,7 @@
     = csrf_meta_tags
     /[if lt IE 9]
       %script(src="http://html5shim.googlecode.com/svn/trunk/html5.js")
+    = favicon_link_tag '/care-content-favicon.ico'
 
   %body
     - if @current_controller == "content_files"
