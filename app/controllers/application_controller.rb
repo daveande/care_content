@@ -9,20 +9,20 @@ class ApplicationController < ActionController::Base
         flash[:notice] = "This file cannot be downloaded"
       else
         flash[:success] = "Thanks for downloading the file"
-        send_file "public" + @content_file.word_file_url.to_s
         @download = Download.create(:user_id => current_user.id, :content_file_id => @content_file.id)
         @content_file.service_area_id = current_user.hospital.service_area_id
         @content_file.save
+        redirect_to @content_file.word_file_url.to_s
       end
     elsif params[:type] == "dreamweaver"
       if @content_file.dreamweaver_file.to_s.nil?
         flash[:notice] = "This file cannot be downloaded"
       else
         flash[:success] = "Thanks for downloading the file"
-        send_file("public" + @content_file.dreamweaver_file_url.to_s, :disposition => 'attachment')
         @download = Download.create(:user_id => current_user.id, :content_file_id => @content_file.id)
         @content_file.service_area_id = current_user.hospital.service_area_id
         @content_file.save
+        redirect_to @content_file.dreamweaver_file_url.to_s
       end
     else
       flash[:notice] = "There was a problem downloading the file"
