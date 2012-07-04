@@ -8,13 +8,17 @@
     %li{:style => "margin: 0px 0px -15px 20%"}
       %p
         Current File:
-        = @content_file.word_file_url.to_s 
+        - url = @content_file.word_file_url.to_s 
+        - url = URI.parse(url)
+        = url.path
     = f.input :word_file, :as => :file, :hint => "must be a .doc or .docx file"
     = f.input :remove_word_file, :as => :boolean
     %li{:style => "margin: 0px 0px -15px 20%"}
       %p
         Current File:
-        = @content_file.dreamweaver_file_url.to_s 
+        - url = @content_file.dreamweaver_file_url.to_s 
+        - url = URI.parse(url)
+        = url.path
     = f.input :dreamweaver_file, :as => :file, :hint => "must be a .htm file"
     = f.input :remove_dreamweaver_file, :as => :boolean
   =  f.buttons

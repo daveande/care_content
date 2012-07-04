@@ -44,8 +44,20 @@ ActiveAdmin.register ContentFile do
        f.downloads.empty? ? '-' : f.downloads.count
      end
      row :service_area
-     row :word_file
-     row :dreamweaver_file
+     row "Word File" do |f|
+       unless f.word_file.to_s == nil
+        url = f.word_file.to_s
+        url = URI.parse(url)
+        url.path
+       end
+     end
+     row "Dreamweaver File" do |f|
+       unless f.dreamweaver_file.to_s == nil
+        url = f.dreamweaver_file.to_s
+        url = URI.parse(url)
+        url.path
+       end
+     end
      row :created_at
      row :updated_at
    end 
@@ -58,13 +70,13 @@ ActiveAdmin.register ContentFile do
         if @content_file.word_file.to_s.nil?
           flash[:notice] = "This file cannot be downloaded"
         else
-          send_file "public" + @content_file.word_file_url.to_s
+          redirect_to @content_file.word_file_url.to_s
         end
       elsif params[:type] == "dreamweaver"
         if @content_file.dreamweaver_file.to_s.nil?
           flash[:notice] = "This file cannot be downloaded"
         else
-          send_file("public" + @content_file.dreamweaver_file_url.to_s, :disposition => 'attachment')
+          redirect_to @content_file.dreamweaver_file_url.to_s
         end
       else
         flash[:notice] = "There was a problem downloading the file"
