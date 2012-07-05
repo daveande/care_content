@@ -4,13 +4,9 @@ class ContentFilesController < ApplicationController
   def index
     @your_downloads = ContentFile.joins(:downloads).where(:downloads => {:user_id => current_user.id})
 
-    if Rails.env.production?
-      content_files_filtered = ContentFile.where('service_area_id is ? OR service_area_id <> ?', nil, current_user.hospital.service_area_id)
-    else
-      all = ContentFile.all
-      content_files_filtered = ContentFile.joins(:downloads).where(:downloads => {:service_area_id => current_user.hospital.service_area_id})
-      content_files_filtered_by_service_area = all - content_files_filtered
-    end
+    all = ContentFile.all
+    content_files_filtered = ContentFile.joins(:downloads).where(:downloads => {:service_area_id => current_user.hospital.service_area_id})
+    content_files_filtered_by_service_area = all - content_files_filtered
 
     if params[:category]
       @category = params[:category]
