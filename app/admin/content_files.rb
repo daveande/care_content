@@ -15,7 +15,9 @@ ActiveAdmin.register ContentFile do
         link_to "Download", admin_download_file_url(:id => content_file.id, :type => "dreamweaver")
       end
     end
-    column :service_area
+    column "Service Areas" do |f|
+      f.downloads.collect(&:service_area_id).join(', ')
+    end
     column "Downloads" do |content_file|
       if content_file.downloads.empty?
         "-"
@@ -43,7 +45,9 @@ ActiveAdmin.register ContentFile do
      row "Downloads" do |f|
        f.downloads.empty? ? '-' : f.downloads.count
      end
-     row :service_area
+     row "Service Areas" do |f|
+       f.downloads.collect(&:service_area_id).join(', ')
+     end
      row "Word File" do |f|
        unless f.word_file.to_s == nil
         url = f.word_file.to_s
