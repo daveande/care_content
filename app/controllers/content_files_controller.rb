@@ -20,6 +20,8 @@ class ContentFilesController < ApplicationController
     puts @content_files.count
     @categories = Category.all
 
+    expires_now
+
     respond_to do |format|
       format.js
       format.html
