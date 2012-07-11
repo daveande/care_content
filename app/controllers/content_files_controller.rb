@@ -16,6 +16,7 @@ class ContentFilesController < ApplicationController
       @category = 'all'
       @content_files = content_files_filtered_by_service_area 
     end
+    puts @content_files.inspect
     @categories = Category.all
 
     respond_to do |format|
