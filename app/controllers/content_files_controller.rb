@@ -17,11 +17,12 @@ class ContentFilesController < ApplicationController
       @content_files = content_files_filtered_by_service_area 
     end
     puts @content_files.inspect
+    puts @content_files.count
     @categories = Category.all
 
     respond_to do |format|
-      format.html
       format.js
+      format.html
     end
 
   end
