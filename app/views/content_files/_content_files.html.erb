@@ -9,16 +9,16 @@
         </li>
         <li id="sidebar_all">
           <% if @category == 'all' %>
-            <%= link_to "All", content_files_url, :class => "current_filter", :remote => true %>
+            <%= link_to "All", content_files_url, :class => "current_filter" %>
           <% else %>
-            <%= link_to "All", content_files_url, :remote => true %>
+            <%= link_to "All", content_files_url %>
           <% end %>
         </li>
         <% @categories.each do |category| %>
           <% if @category == category.id.to_s %>
-            <li id="sidebar_<%= category.id %>"><%= link_to category.name, content_files_url(:category => category.id), :class => "current_filter", :remote => true %></li>
+            <li id="sidebar_<%= category.id %>"><%= link_to category.name, content_files_url(:category => category.id), :class => "current_filter" %></li>
           <% else %>
-            <li id="sidebar_<%= category.id %>"><%= link_to category.name, content_files_url(:category => category.id), :remote => true %></li>
+            <li id="sidebar_<%= category.id %>"><%= link_to category.name, content_files_url(:category => category.id) %></li>
           <% end %>
         <% end %>
         <li class="divider"></li>

@@ -23,8 +23,8 @@ class ContentFilesController < ApplicationController
     expires_now
 
     respond_to do |format|
-      format.js
       format.html
+      format.js
     end
 
   end
