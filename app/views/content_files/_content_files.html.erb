@@ -60,9 +60,9 @@
                 <% content.categories.each_with_index do |tag, i| %>
                   <% index = i + 1 %>
                   <% if index == count %>
-                    <%= link_to "#{tag.name}", content_files_url(:category => tag.id), :remote => true %>
+                    <%= link_to "#{tag.name}", content_files_url(:category => tag.id) %>
                   <% else %>
-                    <%= link_to "#{tag.name} | ", content_files_url(:category => tag.id), :remote => true %>
+                    <%= link_to "#{tag.name} | ", content_files_url(:category => tag.id) %>
                   <% end %>
                 <% end %>
               </div>
