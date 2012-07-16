@@ -12,7 +12,7 @@ a:hover {
 }
 
 p {
-  color: #898989;
+  color: #7D7D7D;
 }
 
 .alert {
@@ -48,10 +48,13 @@ p {
   float: none; 
   line-height: 28px;
   padding: 9px 10px 11px;
-  color: #555;
+  color: #F23A36;
+  font-size: 14px;
   text-shadow: none;
   &:hover {
     color: #f23a36;
+    text-decoration: underline;
+    cursor: pointer;
   }
 }
 
@@ -133,7 +136,7 @@ p {
   li {
     font-size: 15px;
     line-height: 30px;
-    color: #898989;
+    color: #7D7D7D;
   }
   #faq {
     margin-left: 60px;
@@ -252,6 +255,9 @@ footer {
   }
   #copyright {
     float:left;
+    p {
+      font-size: 11px;
+    }
   }
 }
 

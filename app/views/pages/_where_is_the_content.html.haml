@@ -1,0 +1,32 @@
+%h2
+  Where is the content?
+%p
+  It's coming! We are eagerly developing our web content reserve to help you drive traffic and engage patients online. Meanwhile, we'd love to get your 
+  insight on the type of content your hospital or health system needs for its landing pages and e-newsletters. Also, share your thoughts on what you've seen on
+  the site so far, and we'll follow up to see how CareContent can meet your hospital or health system's web content needs.
+#contact_form
+  = form_tag('/contact') do 
+    .row#contact_person_info
+      .span4
+        %p Your Name:
+        %p Your Title:
+        %p Hospital or health system name:
+        %p Hospital or health system location:
+        %p Your email: 
+        %p Your phone number:
+      .span4
+        = text_field_tag(:name)
+        = text_field_tag(:title)
+        = text_field_tag(:hospital_name)
+        = text_field_tag(:hospital_location)
+        = text_field_tag(:email)
+        = text_field_tag(:phone_number)
+    %p{:style=> "margin-top: 30px;"} 
+      What is on your web content wish list? What does your organization want to promote online?
+    = text_area_tag(:content_needs, nil, :rows => 7)
+    %p{:style=> "margin-top: 30px;"}
+      Share any initial thoughts you have so far: 
+    = text_area_tag(:initial_thoughts, nil, :rows => 7)
+    %p{:style=> "margin: 30px 0;"}
+      Thanks! We look forward to following up with you.
+    = submit_tag("Submit", :class => "btn btn-primary")

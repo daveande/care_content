@@ -9,15 +9,13 @@
           %h3
             Our Mission
           %p
-            We use web content to tell the stories of the human body; to explain the conditions that impair it; and lead people to those who restore it.
+            We use web content to tell the stories of the human body; to explain the conditions that challenge it; and lead people to those who restore it.
       .span8#faq
         %h2
           What is CareContent?
         %p
-          It's a robust content service that allows hospitals and health systems to update web site pages, feed e-newsletters and finally link to something
-          worthwhile on social media sites. CareContent licenses feature stories, quizzes, current news articles, photos and illustrations from a 
-          growing repository of web content. Stop dreading the next website update or e-newsletter deadline. Now you can get excited about updating your web
-          vehicles with content patients will love reading.
+          It's a reserve of web content that allows health care organizations to update website landing pages and feed e-newsletters. The growing reserve includes
+          feature stories, quizzes, current news articles, and slide shows.
         %h2
           How does the service work?
         %ol
@@ -27,8 +25,8 @@
             Select the content you want for your website or e-newsletter. The content you select is guaranteed to be exclusive within your primary and secondary
             service area for one full year.
           %li
-            Edit the content to your heart's delight. Use the "quick quote" prompts to add insights from your hospital or health system's clinicians and leaders
-            (or skip them, no pressure). Include information about your organization's programs and services, along with a photo or two. (We strongly recommend
+            Edit the content to your heart's delight. Use the "quick quote" prompts to add insights from your clinicians and leaders
+            (or skip them, no pressure). Include information about your organization's programs and services, and add in photos. (We strongly recommend
             giving quoted sources the opportunity to review the content before publishing).
           %li
             Post it on your landing page or insert it in your e-newsletter.
@@ -37,12 +35,14 @@
         %h2
           Where do I sign up?
         %p
-          Try it free for 30-days. After that, CareContent is available for a tiered monthly subscription, based on how munch content is needed each month.
+          Try it free for 30-days. (
+          = link_to "kadesha@carecontent.com", "mailto:kadesha@carecontent.com", :target => "blank"
+          ) After that, CareContent is available for a tiered monthly subscription, based on how much content is needed each month.
         %hr 
         %h2
           Where is the content?
         %p
-          It's coming! We are eagerly developing our reserve of web content to help you drive traffic and engage patients online. Meanwhile, we'd love to get your 
+          It's coming! We are eagerly developing our web content reserve to help you drive traffic and engage patients online. Meanwhile, we'd love to get your 
           insight on the type of content your hospital or health system needs for its landing pages and e-newsletters. Also, share your thoughts on what you've seen on
           the site so far, and we'll follow up to see how CareContent can meet your hospital or health system's web content needs.
         #contact_form
@@ -51,7 +51,7 @@
               .span4
                 %p Your Name:
                 %p Your Title:
-                %p Hopsital or health system name:
+                %p Hospital or health system name:
                 %p Hospital or health system location:
                 %p Your email: 
                 %p Your phone number:
@@ -63,7 +63,7 @@
                 = text_field_tag(:email)
                 = text_field_tag(:phone_number)
             %p{:style=> "margin-top: 30px;"} 
-              What is on your hospital's web content wish list? What does your organization want to promote online? How do you want people to engage with your organization online? What are your current web content challenges?
+              What is on your web content wish list? What does your organization want to promote online?
             = text_area_tag(:content_needs, nil, :rows => 7)
             %p{:style=> "margin-top: 30px;"}
               Share any initial thoughts you have so far: 
