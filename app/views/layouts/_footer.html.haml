@@ -2,27 +2,37 @@
   .container-fluid
     %footer.footer
       %nav
+        %ul.social
+          %li= link_to(image_tag('facebook.png'), 'http://www.facebook.com/carecontent', :target => "blank")
+          %li= link_to(image_tag('twitter.png'), 'http://www.twitter.com/carecontent', :target => "blank")
+          %li= link_to(image_tag('email.png'), 'mailto:kadesha@carecontent.com', :target => "blank")
+        %ul.links
+          %li= link_to "Home", root_url
+          %li= link_to "About", about_url
+          %li= link_to "Sign In", new_user_session_url
+        .clearfix
         #copyright
           %p
             Copyright 2012&copy; 
             = link_to "Care Content, Inc.", root_url
             All rigths reserved. - 
             For more info, contact Kadesha: 313-532-1362 or Kadesha@CareContent.com
-        %ul
-          %li= link_to "Home", root_url
-          %li= link_to "About", about_url
-          %li= link_to "Sign In", new_user_session_url
 - else 
   .container
     %footer.footer
       %nav
+        %ul.social
+          %li= link_to(image_tag('facebook.png'), 'http://www.facebook.com/carecontent', :target => "blank")
+          %li= link_to(image_tag('twitter.png'), 'http://www.twitter.com/carecontent', :target => "blank")
+          %li= link_to(image_tag('email.png'), 'mailto:kadesha@carecontent.com', :target => "blank")
+        %ul.links
+          %li= link_to "Home", root_url
+          %li= link_to "About", about_url
+          %li= link_to "Sign In", new_user_session_url
+        .clearfix
         #copyright
           %p
             Copyright 2012&copy; 
             = link_to "Care Content, Inc.", root_url
             All rigths reserved. - 
             For more info, contact Kadesha: 313-532-1362 or Kadesha@CareContent.com
-        %ul
-          %li= link_to "Home", root_url
-          %li= link_to "About", about_url
-          %li= link_to "Sign In", new_user_session_url

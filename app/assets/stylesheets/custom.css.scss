@@ -121,7 +121,7 @@ p {
 
 #about {
   margin-top: 35px;
-  img {
+  ul.thumbnails img {
     border: 3px solid white;
     box-shadow: 0 0 5px black;
     -webkit-box-shadow: 0 0 5px black;
@@ -153,6 +153,9 @@ p {
       color: white;
       font-style: italic;
     }
+  }
+  #about-social {
+    margin-top: 20px;
   }
 }
 
@@ -232,6 +235,15 @@ a.current_filter {
 }
 
 /* footer */
+ul.social {
+  float: left;
+  list-style: none;
+  margin-left: -10px;
+  li { 
+    float: left; 
+    margin-left: 10px;
+  }
+}
 
 footer {
   margin-top: 45px;
@@ -245,7 +257,7 @@ footer {
       text-decoration: none; 
     }
   }
-  ul {
+  ul.links {
     float: right;
     list-style: none;
     li { 
@@ -254,9 +266,10 @@ footer {
     }
   }
   #copyright {
-    float:left;
     p {
       font-size: 11px;
+      margin: 30px 0 10px 0;
+      text-align: center;
     }
   }
 }
