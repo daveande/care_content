@@ -1,11 +1,11 @@
 class PagesController < ApplicationController
 
   def home
-    @title = "Home | Care Content"
+    @title = "Home | CareContent"
   end
 
   def about
-    @title = "About | Care Content"
+    @title = "About | CareContent"
   end
 
   def suggestions
