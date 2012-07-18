@@ -87,57 +87,59 @@
     <% end %>
   </div>
 </div>
-  <hr />
-<div class="row-fluid">
-  <div class="span2">
-    <ul class="nav nav-list">
-      <li class="nav-header">
-        <i class="icon-download"></i>
-          Your Downloads 
-      </li>
-    </ul>
-  </div>
-  <div class="span10" id="downloads_section">
-    <% @your_downloads.each_with_index do |downloaded_file, i| %>
-      <% if i.even? %>
-        <div class="row-fluid">
-      <% end %>
-          <div class="span6 content_summary downloaded">
-            <h3 class="content_title"><%= downloaded_file.title %></h3>
-            <p class="content_description" id="content_description_<%= downloaded_file.id %>"><%= downloaded_file.description %></p>
-            <div class="content_categories">
-                <% count = downloaded_file.categories.count %>
-                <% downloaded_file.categories.each_with_index do |tag, i| %>
-                  <% index = i + 1 %>
-                  <% if index == count %>
-                    <%= link_to "#{tag.name}", content_files_url(:category => tag.id), :remote => true %>
-                  <% else %>
-                    <%= link_to "#{tag.name} | ", content_files_url(:category => tag.id), :remote => true %>
+<hr />
+<% unless @your_downloads.empty? %>
+  <div class="row-fluid">
+    <div class="span2">
+      <ul class="nav nav-list">
+        <li class="nav-header">
+          <i class="icon-download"></i>
+            Your Downloads 
+        </li>
+      </ul>
+    </div>
+    <div class="span10" id="downloads_section">
+      <% @your_downloads.each_with_index do |downloaded_file, i| %>
+        <% if i.even? %>
+          <div class="row-fluid">
+        <% end %>
+            <div class="span6 content_summary downloaded">
+              <h3 class="content_title"><%= downloaded_file.title %></h3>
+              <p class="content_description" id="content_description_<%= downloaded_file.id %>"><%= downloaded_file.description %></p>
+              <div class="content_categories">
+                  <% count = downloaded_file.categories.count %>
+                  <% downloaded_file.categories.each_with_index do |tag, i| %>
+                    <% index = i + 1 %>
+                    <% if index == count %>
+                      <%= link_to "#{tag.name}", content_files_url(:category => tag.id), :remote => true %>
+                    <% else %>
+                      <%= link_to "#{tag.name} | ", content_files_url(:category => tag.id), :remote => true %>
+                    <% end %>
                   <% end %>
+                </div>
+              <div class="content-action-bar">
+                <% if !downloaded_file.word_file.to_s.nil? %>
+                  <a href="http://www.carecontent.com/download_file?id=<%= downloaded_file.id %>&type=word" class="btn btn-small btn-primary">
+                    <i class="icon-download icon-white"></i>
+                    Download Word File
+                  </a>
+                <% end %>
+                <% if !downloaded_file.dreamweaver_file.to_s.nil? %>
+                  <a href="http://www.carecontent.com/download_file?id=<%= downloaded_file.id %>&type=dreamweaver" class="btn btn-small btn-primary">
+                    <i class="icon-download icon-white"></i>
+                    Download Dreamweaver File
+                  </a>
                 <% end %>
               </div>
-            <div class="content-action-bar">
-              <% if !downloaded_file.word_file.to_s.nil? %>
-                <a href="http://www.carecontent.com/download_file?id=<%= downloaded_file.id %>&type=word" class="btn btn-small btn-primary">
-                  <i class="icon-download icon-white"></i>
-                  Download Word File
-                </a>
-              <% end %>
-              <% if !downloaded_file.dreamweaver_file.to_s.nil? %>
-                <a href="http://www.carecontent.com/download_file?id=<%= downloaded_file.id %>&type=dreamweaver" class="btn btn-small btn-primary">
-                  <i class="icon-download icon-white"></i>
-                  Download Dreamweaver File
-                </a>
-              <% end %>
             </div>
+        <% if !i.even? %>
           </div>
-      <% if !i.even? %>
-        </div>
+        <% end %>
+        
       <% end %>
-      
-    <% end %>
+    </div>
   </div>
-</div>
+<% end %>
 </div>
 
 
