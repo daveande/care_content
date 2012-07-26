@@ -117,7 +117,22 @@ p {
 
 .sign_in_out {
   margin-top: 35px;
+  h2 {
+    color: #569c91;
+  }
 }
+
+#sign-up {
+  h2 {
+    font-size: 17px;
+    color: #569c91;
+  }
+  p {
+    font-size: 15px;
+  }
+}
+
+
 
 #about {
   margin-top: 35px;
