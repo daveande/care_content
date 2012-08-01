@@ -5,6 +5,7 @@ $linkColor: #f23a36;
 body {
   padding-top: 50px;
   background-color: #F8F8F8;
+  min-width: 1040px;
 }
  
 a:hover {
@@ -70,7 +71,7 @@ p {
 #hero-tagline {
   margin-top: 50px;
   h1 {
-    font-size: 40px;
+    font-size: 35px;
     color: white;
     line-height: 50px;
     margin-top: 60px;
