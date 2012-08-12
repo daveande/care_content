@@ -3,7 +3,6 @@ $linkColor: #f23a36;
 @import "bootstrap";
 
 body {
-  padding-top: 50px;
   background-color: #F8F8F8;
   min-width: 1040px;
 }
@@ -35,6 +34,13 @@ p {
   &:hover {
     color: white;
     text-decoration: none;
+  }
+}
+
+.navbar {
+  margin-bottom:0px;
+  .container {
+    width: 940px;
   }
 }
 

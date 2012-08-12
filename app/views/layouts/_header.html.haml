@@ -1,5 +1,5 @@
 - if wide == true
-  %header.navbar.navbar-fixed-top
+  %header.navbar
     .navbar-inner
       .container-fluid
         = link_to(image_tag('logo.png', :alt => "Care Content"), root_url, :id => "logo")
@@ -13,7 +13,7 @@
               %li= link_to "Content", content_files_url
               %li= link_to "Sign Out", destroy_user_session_url, :method => "delete"
 - else 
-  %header.navbar.navbar-fixed-top
+  %header.navbar
     .navbar-inner
       .container
         = link_to(image_tag('logo.png', :alt => "Care Content"), root_url, :id => "logo")
