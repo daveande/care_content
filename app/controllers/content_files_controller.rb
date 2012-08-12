@@ -17,11 +17,7 @@ class ContentFilesController < ApplicationController
       @category = 'all'
       @content_files = content_files_filtered_by_service_area 
     end
-    puts @content_files.inspect
-    puts @content_files.count
     @categories = Category.all
-
-    expires_now
 
     respond_to do |format|
       format.html
