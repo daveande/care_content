@@ -8,6 +8,10 @@ class PagesController < ApplicationController
     @title = "About | CareContent"
   end
 
+  def pricing
+    @title = "Pricing | CareContent"
+  end
+
   def suggestions
     SuggestionsMailer.suggestion_email(params[:email], params[:suggestion]).deliver
     flash[:success] = "Your message has been sent. Thanks for your feedback!"
@@ -18,6 +22,13 @@ class PagesController < ApplicationController
     SuggestionsMailer.contact_email(params).deliver
     flash[:success] = "Your message has been sent. Thanks for your feedback!"
     redirect_to root_url
+  end
+
+  def send_sample
+    SuggestionsMailer.send_sample(params[:name], params[:email], params[:organization]).deliver
+    flash[:success] = "Your message has been sent. We'll contact you shortly with a sample!"
+    redirect_to root_url
+
   end
 
 end

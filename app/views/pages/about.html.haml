@@ -1,55 +1,98 @@
 .container
   #about
     .row
-      .span3
-        %ul.thumbnails
-          %li.span3
-            = image_tag("pediatrics.jpg")
-        #mission
-          %h3
-            Our Mission
-          %p
-            We use web content to tell the stories of the human body; to explain the conditions that challenge it; and lead people to those who restore it.
-        #about-social
-          %ul.social
-            %li= link_to(image_tag('facebook.png'), 'http://www.facebook.com/carecontent', :target => "blank")
-            %li= link_to(image_tag('twitter.png'), 'http://www.twitter.com/carecontent', :target => "blank")
-            %li= link_to(image_tag('email.png'), 'mailto:kadesha@carecontent.com', :target => "blank")
-      .span8#faq
+      .span4
+        <iframe class="video-border" width="340" height="230" src="http://www.youtube.com/embed/-FeTrtuWOV4" frameborder="0" allowfullscreen></iframe>
+      .span7.offset1
         %h2
           What is CareContent?
         %p
-          It's a reserve of web content that allows health care organizations to update website landing pages and feed e-newsletters. The growing reserve includes
-          feature stories, quizzes, current news articles, and slide shows.
+          We help health care organizations engage patients online with compelling web content. We can work one-on-one
+          with your team to create custom web content, or you can license CareContent's reserve of customizable feature stories,
+          current medical news, slide shows and more.
+        = link_to "See Pricing", pricing_url, :class => 'btn btn-primary btn-large pull-right'
+    #about-steps
+      .row
+        .span12
+          %h2
+            How does CareContent's reserve work?
+      .row
+        .center
+          .span2
+            %h3
+              1) Sign In
+            %p
+              If you're new,
+              %br
+              sign up!
+          .span2
+            %h3
+              2) Select content
+            %p
+              Download it now, or save it for later.
+          .span2
+            %h3
+              3) Customize it
+            %p
+              Promote clinicians, programs and services.
+          .span2
+            %h3
+              4) Publish it
+            %p
+              In e-newsletters, on websites and digital signage.
+          .span2
+            %h3
+              5) Spread the word
+            %p 
+              Use suggested tweets and Facebook updates.
+    .faqs.shaded-box
+      .row
         %h2
-          How does the service work?
-        %ol
-          %li
-            Log in.
-          %li
-            Select the content you want for your website or e-newsletter. The content you select is guaranteed to be exclusive within your primary and secondary
-            service area for one full year.
-          %li
-            Edit the content to your heart's delight. Use the "quick quote" prompts to add insights from your clinicians and leaders
-            (or skip them, no pressure). Include information about your organization's programs and services, and add in photos. (We strongly recommend
-            giving quoted sources the opportunity to review the content before publishing).
-          %li
-            Post it on your landing page or insert it in your e-newsletter.
-          %li
-            Don't forget to mention the new content on your social media vehicles. Tweet one of the added or post it as your organization's new Facebook status update.
-        %h2
-          Where do I sign up?
-        %p
-          Try it free for 30-days. (
-          = link_to "kadesha@carecontent.com", "mailto:kadesha@carecontent.com", :target => "blank"
-          ) After that, CareContent is available for a tiered monthly subscription, based on how much content is needed each month.
-        %hr 
-        %h2
-          Where is the content?
-        %p
-          It's coming! We are eagerly developing our web content reserve to help you drive traffic and engage patients online. Meanwhile, we'd love to get your 
-          insight on the type of content your hospital or health system needs for its landing pages and e-newsletters. Also, share your thoughts on what you've seen on
-          the site so far, and we'll follow up to see how CareContent can meet your hospital or health system's web content needs.
-        = render :partial => 'contact_form'
+          Frequently Asked Questions about CareContent
+        .span5
+          %p.bold
+            Who produces the content?
+          %p
+            We write it. Our writers really listen to patients to create content that resonates with them.
+          %p.bold
+            How do you ensure exclusivity?
+          %p
+            Our database is programmed to block your downloaded content from availability to other users in your service area.
+          %p.bold
+            How is the content customizable?
+          %p
+            The content is delivered in the same formats you'd use if you were creating it 
+            yourself - txt, docx, ppt, or html. This ensures compatibility with any web platform
+            or CMS.
+        .span5
+          %p.bold
+            How is CareContent different?
+          %p
+            Other web content services focus on diseases and conditions. CareContent speaks to the patient
+            experience and impacts health care decisions. See for yourself below.
+          %p.bold
+            What about SEO for content on websites?
+          %p
+            Being the first to publish the content can boost SEO. Though content is exclusive within each
+            user's service area, we are constantly adding new content to deter duplication among users.
+          %p.bold
+            After I select content, how is it delivered?
+          %p
+            You can download it or have it emailed.
+
+#about-email
+  .container
+    .row
+      .span5
+        %p.bold
+          Get a free, full-length web feature, or request a quote for custom content:
+      .span7
+        = render 'send_sample'
+.container
+  .row
+    = link_to 'See Pricing', pricing_url, :class => 'btn btn-primary btn-large pull-right'
+          
+
+
 
 

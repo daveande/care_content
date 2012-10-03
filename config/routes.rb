@@ -13,12 +13,12 @@ CareContent::Application.routes.draw do
   as :admin_user do 
     get '/admin_download_file' => 'admin/content_files#admin_download_file'
   end
-
-
    
-  match '/about' => "pages#about"
-  match '/suggestions' => "pages#suggestions"
-  match '/contact' => "pages#contact"
+  get '/pricing' => "pages#pricing"
+  get '/about' => "pages#about"
+  post '/suggestions' => "pages#suggestions"
+  post '/contact' => "pages#contact"
+  post '/send_sample' => "pages#send_sample"
   get '/download_file' => "content_files#download_file"
   resources :content_files, :only => [:index, :show]
 

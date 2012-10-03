@@ -15,6 +15,22 @@ p {
   color: #7D7D7D;
 }
 
+.bold {
+  font-weight: bold;
+}
+
+.green {
+  color: #569c91;
+}
+
+.orange {
+  color: #F23A36;
+}
+
+.center { 
+  text-align: center;
+}
+
 .alert {
   margin-top: 10px;
   margin-bottom: 10px;
@@ -24,13 +40,13 @@ p {
 #logo {
   float: left;
   margin-right: 10px;
+  margin-top: 8px;
   font-size: 1.7em;
   color: white;
   text-transform: uppercase;
   letter-spacing: -1px;
   padding: 10px 0;
   font-weight: bold;
-  line-height: 1;
   &:hover {
     color: white;
     text-decoration: none;
@@ -45,6 +61,7 @@ p {
 }
 
 .navbar-inner {
+  min-height: 75px;
   background-color: #F8F8F8;
   background-image: none;
   background-repeat: no-repeat;
@@ -53,16 +70,38 @@ p {
 
 .navbar .nav > li > a {
   float: none; 
-  line-height: 28px;
+  line-height: 18px;
   padding: 9px 10px 11px;
-  color: #F23A36;
+  background-color: #F23A36;
+  color: white;
   font-size: 14px;
   text-shadow: none;
+  margin: 15px 0 0 5px;
+  border-radius: 8px;
   &:hover {
-    color: #f23a36;
-    text-decoration: underline;
+    text-decoration: none;
     cursor: pointer;
+    background-color: #F23A36;
+    color: white;
   }
+  background-color: #F24C36;
+  background-image: -moz-linear-gradient(top, #F23A36, #F26936);
+  background-image: -ms-linear-gradient(top, #F23A36, #F26936);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#F23A36), to(#F26936));
+  background-image: -webkit-linear-gradient(top, #F23A36, #F26936);
+  background-image: -o-linear-gradient(top, #F23A36, #F26936);
+  background-image: linear-gradient(top, #F23A36, #F26936);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFF23A36', endColorstr='#FFF26936', GradientType=0);
+  border-color: #F26936 #F26936 #CE420D;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) fadein(rgba(0, 0, 0, 0.1), 15%);
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
+
+.video-border {
+  border: 5px solid white;
+  box-shadow: 0 0 10px black;
+  -webkit-box-shadow: 0 0 10px black;
 }
 
 #hero {
@@ -85,22 +124,52 @@ p {
   }
 }
 
+
 #hero-description {
   margin-top: 20px;
-  border-bottom: 1px solid #EEE;
   p {
-    font-size: 17px;
-    margin-bottom: 20px;
+    font-size: 18px;
     line-height: 36px;
+    text-align: center;
+  }
+  .hero-benefit {
+    p {
+      text-align: left;
+      margin-top: 11px;
+      font-size: 18px;
+    }
+    li {
+      margin-left: -5px;
+      font-size: 18px;
+      line-height: 30px;
+      color: #7D7D7D;
+    }
+  }
+}
+
+#hero-email {
+  margin-top: 20px;
+  background-color: #b1d4bb;
+  padding: 10px 0;
+  box-shadow: 0px -2px 10px #7D7D7D;
+  p {
+    font-size: 18px;
+    color: white;
+    line-height: 28px;
+    margin-bottom: 0px;
+  }
+  form {
+    margin-bottom: 0px;
+  }
+  input {
+    margin-left: 5px;
   }
   .btn {
-    float: right;
-    margin-top: 25px;
+    margin-left: 12px;
   }
 }
 
 #hero-content {
-  border-top: 1px solid white;
   h3.hero {
     margin: 35px 0;
     color: #569c91;
@@ -118,6 +187,10 @@ p {
     margin: 10px 0px 35px 0; 
     h3 {
       font-size: 15px;
+    }
+    p {
+      font-size: 16px;
+      line-height: 30px; 
     }
   }
 }
@@ -139,45 +212,139 @@ p {
   }
 }
 
-
-
 #about {
   margin-top: 35px;
-  ul.thumbnails img {
-    border: 3px solid white;
-    box-shadow: 0 0 5px black;
-    -webkit-box-shadow: 0 0 5px black;
+  .span2 {
+    width: 170px;
   }
   h2 {
     color: #569c91;
   }
+  h3 {
+    color: #f23a36;
+    font-size: 18px;
+    margin-top: 5px; 
+  }
   p {
-    font-size: 15px;
+    font-size: 18px;
     line-height: 30px;
   }
-  li {
-    font-size: 15px;
-    line-height: 30px;
-    color: #7D7D7D;
+}
+
+#about-steps {
+  margin: 30px 0;
+  br {
+    margin-top: -10px;
   }
-  #faq {
-    margin-left: 60px;
+}
+
+#about-email {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  background-image: url('hero-pricing-background.png');
+  background-repeat: repeat-x;
+  padding: 10px 0;
+  box-shadow: 0px -2px 10px #7D7D7D;
+  img {
+    width: 200%;
   }
-  #mission {
-    background: #f23a26;
+  p {
+    font-size: 21px;
     color: white;
-    padding: 20px;
-    h3 {
-      text-transform: uppercase;
-      text-align: center;
-    }
-    p {
-      color: white;
-      font-style: italic;
-    }
+    line-height: 32px;
+    margin-top: 18px;
   }
-  #about-social {
+  form {
+    margin-bottom: 0px;
+    line-height: 100px;
+  }
+  input {
+    margin-left: 5px;
+  }
+  .input-medium {
+    width: 123px;
+  }
+  .btn {
+    margin-left: 12px;
+  }
+}
+
+.shaded-box {
+  background-color: rgb(250,246,209);
+  padding: 10px;
+  box-shadow: 5px 5px 10px black;
+  -webkit-box-shadow: 5px 5px 10px black;
+  border-radius: 5px;
+}
+
+.faqs {
+  margin: 20px auto 0 auto;
+  padding: 20px;
+  width: 830px;
+  h2 {
+    text-align: center;
+    color: #569c91;
+  }
+  p.bold {
+    font-weight: bold;
+    margin-bottom: 2px;
     margin-top: 20px;
+    line-height: 20px;
+  }
+  p {
+    font-size: 18px;
+    line-height: 30px;
+  }
+  .span5 {
+    width: 405px;
+  }
+}
+
+#hero-pricing {
+  background-image: url('hero-pricing-background.png');
+  box-shadow: 0 0 5px black;
+  -webkit-box-shadow: 0 0 5px black;
+  h2 {
+    line-height: 125px;
+    color: white;
+  }
+}
+
+#pricing-options {
+  margin-top: 30px;
+  p {
+    font-size: 18px;
+    line-height: 27px;
+  }
+  .offset1 {
+    margin-left: 40px;
+  }
+  .span6 {
+    width: 520px;
+  }
+}
+
+#a-la-carte-pricing {
+  margin: 10px 0 20px 0;
+  p {
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: bold;
+  }
+  [class*="span"] {
+    margin-left: 32px;
+  }
+}
+
+#subscription-pricing {
+  margin: 10px 0 20px 0;
+  p {
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: bold;
+  }
+  [class*="span"] {
+    margin-left: 27px;
   }
 }
 
