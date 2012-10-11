@@ -2,12 +2,12 @@
   .container
     .row
       #hero-tagline
-        .span6
+        .span7
           %h1 
             Bring patients from the web to your waiting room.
           = link_to "Learn More", about_url, :class => "btn btn-primary btn-large"
-        .span6
-          <iframe class="video-border" width="460" height="315" src="http://www.youtube.com/embed/-FeTrtuWOV4" frameborder="0" allowfullscreen></iframe>
+        .span5
+          <iframe class="video-border" width="370" height="270" src="http://www.youtube.com/embed/-FeTrtuWOV4" frameborder="0" allowfullscreen></iframe>
 .container
   #hero-description
     .row
@@ -48,7 +48,7 @@
             %li
               Service area exclusivity
             %li
-              Concluding calls to action to measure ROI
+              Concluding calls to action
 #hero-email
   .container
     .row
@@ -65,31 +65,31 @@
         %h3.hero
           See samples of CareContent's growing reserve:
       .span3
-        = image_tag("general-health.jpg")
+        = link_to(image_tag("general-health.jpg"), about_url)
         .hero-categories
           %h3
             = link_to "Health and Wellness", new_user_session_url 
           %p
             Share insights on staying healthy with the right lifestyle choices and medical services. 
       .span3
-        = image_tag("cardiology.jpg", :width => "220px", :height => "145px")
+        = link_to(image_tag("cardiology.jpg", :width => "220px", :height => "145px"), about_url)
         .hero-categories
           %h3
             = link_to "Cardiology Services", new_user_session_url
           %p
             Help patients understand their heart condition and how you can manage it together. 
       .span3
-        = image_tag("cancer-care.jpg")
+        = link_to(image_tag("cancer-care.jpg"), about_url)
         .hero-categories
           %h3
             = link_to "Cancer Care and Survivorship", new_user_session_url 
           %p
-            Explore the challeges and triumphs of cancer care with content that informs, reassures and gives hope.
+            Explore the challenges and triumphs of cancer care with content that informs and inspires.
       .span3
-        = image_tag("ortho.jpg")
+        = link_to(image_tag("ortho.jpg"), about_url)
         .hero-categories
           %h3
-            = link_to "Orthopedics", new_user_session_url 
+            = link_to "Orthopedics and Sports Medicine", new_user_session_url 
           %p
             Discuss how your services restore mobility and help patients back to an active life.
   = link_to "Learn More", about_url, :class => "btn btn-primary btn-large pull-right"

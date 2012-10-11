@@ -179,6 +179,7 @@ p {
     border: 5px solid white;
     box-shadow: 0 0 5px black;
     -webkit-box-shadow: 0 0 5px black;
+    color: white;
   }
   a {
     color: #f23a36;
@@ -280,7 +281,7 @@ p {
 .faqs {
   margin: 20px auto 0 auto;
   padding: 20px;
-  width: 830px;
+  width: 850px;
   h2 {
     text-align: center;
     color: #569c91;
@@ -297,6 +298,9 @@ p {
   }
   .span5 {
     width: 405px;
+  }
+  .left-margin {
+    margin-left: 40px;
   }
 }
 
@@ -345,6 +349,10 @@ p {
   }
   [class*="span"] {
     margin-left: 27px;
+  }
+  .large-span1 {
+    width: 100px;
+    margin-left: -5px;
   }
 }
 
