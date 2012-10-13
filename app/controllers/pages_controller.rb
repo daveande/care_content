@@ -12,6 +12,14 @@ class PagesController < ApplicationController
     @title = "Pricing | CareContent"
   end
 
+  def terms
+    @title = "Terms and Conditions | CareContent"
+  end
+
+  def payments
+    @title = "Payment | CareContent"
+  end
+
   def suggestions
     SuggestionsMailer.suggestion_email(params[:email], params[:suggestion]).deliver
     flash[:success] = "Your message has been sent. Thanks for your feedback!"

@@ -8,9 +8,9 @@
           What is CareContent?
         %p
           We help health care organizations engage patients online with compelling web content. We can work one-on-one
-          with your team to create custom web content, or you can license CareContent's reserve of customizable feature stories,
-          current medical news, slide shows and more.
-        = link_to "See Pricing", pricing_url, :class => 'btn btn-primary btn-large pull-right'
+          with your team to create custom web content, or you can license CareContent's reserve of features, medical news,
+          slide shows, and more.
+        = link_to "See Pricing", pricing_url, :class => 'btn btn-primary btn-large pull-right', :id => 'see-pricing'
     #about-steps
       .row
         .span12
@@ -24,7 +24,7 @@
             %p
               If you're new,
               %br
-              sign up!
+              = link_to 'sign up!', pricing_url
           .span2
             %h3
               2) Select content
@@ -44,7 +44,7 @@
             %h3
               5) Spread the word
             %p 
-              Use suggested tweets and Facebook updates.
+              Use suggested Tweets and Facebook updates.
     .faqs.shaded-box
       .row
         %h2
@@ -62,14 +62,14 @@
             How is the content customizable?
           %p
             The content is delivered in the same formats you'd use if you were creating it 
-            yourself - txt, docx, ppt, or html. This ensures compatibility with any web platform
+            yourself - .docx or .html. This ensures compatibility with any web platform
             or CMS.
-        .span5
+        .span5.left-margin
           %p.bold
             How is CareContent different?
           %p
             Other web content services focus on diseases and conditions. CareContent speaks to the patient
-            experience and impacts health care decisions. See for yourself below.
+            experience. See for yourself below.
           %p.bold
             What about SEO for content on websites?
           %p
@@ -78,7 +78,7 @@
           %p.bold
             After I select content, how is it delivered?
           %p
-            You can download it or have it emailed.
+            You can download it, and soon you'll be able to have it emailed.
 
 #about-email
   .container

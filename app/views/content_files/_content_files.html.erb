@@ -70,13 +70,13 @@
               <% if !content.word_file.to_s.nil? %>
                 <a href="http://carecontent.com/download_file?id=<%= content.id %>&type=word" class="btn btn-small btn-primary">
                   <i class="icon-download icon-white"></i>
-                  Download Word File
+                  Download .docx file
                 </a>
               <% end %>
               <% if !content.dreamweaver_file.to_s.nil? %>
                 <a href="http://carecontent.com/download_file?id=<%= content.id %>&type=dreamweaver" class="btn btn-small btn-primary">
                   <i class="icon-download icon-white"></i>
-                  Download Dreamweaver File
+                  Download .html file
                 </a>
               <% end %>
             </div>
@@ -121,13 +121,13 @@
                 <% if !downloaded_file.word_file.to_s.nil? %>
                   <a href="http://www.carecontent.com/download_file?id=<%= downloaded_file.id %>&type=word" class="btn btn-small btn-primary">
                     <i class="icon-download icon-white"></i>
-                    Download Word File
+                    Download .docx file
                   </a>
                 <% end %>
                 <% if !downloaded_file.dreamweaver_file.to_s.nil? %>
                   <a href="http://www.carecontent.com/download_file?id=<%= downloaded_file.id %>&type=dreamweaver" class="btn btn-small btn-primary">
                     <i class="icon-download icon-white"></i>
-                    Download Dreamweaver File
+                    Download .html file
                   </a>
                 <% end %>
               </div>
