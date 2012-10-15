@@ -308,6 +308,15 @@ p {
   }
 }
 
+#terms-link {
+  color: #7D7D7D;
+}
+
+#terms-link:hover {
+  text-decoration: underline;
+  color: #F23A36;
+}
+
 #hero-pricing {
   background-image: url('hero-pricing-background.png');
   box-shadow: 0 0 5px black;
