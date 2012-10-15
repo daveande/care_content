@@ -1,0 +1,23 @@
+<% files.each_with_index do |content, i| %>
+  <% if i.even? %>
+    <div class="row-fluid">
+  <% end %>
+  <div class="span6 content_summary <%= shade_of_box %>">
+        <h3 class="content_title"><%= content.title %></h3>
+        <p class="content_description" id="content_description_<%= content.id %>"><%= content.description %></p>
+        <div class="content_categories">
+          <%= raw content.categories.collect{|tag| link_to tag.name, content_files_url(:category => tag.id)}.join(' | ') %>
+        </div>
+        <div class="content-action-bar">
+          <% if content.word_file.to_s %>
+            <%= link_to raw("<i class='icon-download icon-white'></i> Download .docx file"), content_file_downloads_url(:content_file_id => content.id, :type => 'word', :count => count), :method => 'POST', :class => "btn btn-small btn-primary" %>
+          <% end %>
+          <% if content.dreamweaver_file.to_s %>
+            <%= link_to raw("<i class='icon-download icon-white'></i> Download .html file"), content_file_downloads_url(:content_file_id => content.id, :type => 'dreamweaver', :count => count), :method => 'POST', :class => "btn btn-small btn-primary" %>
+          <% end %>
+        </div>
+      </div>
+  <% if !i.even? %>
+    </div>
+  <% end %>
+<% end %>
