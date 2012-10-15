@@ -21,8 +21,9 @@ CareContent::Application.routes.draw do
   post '/suggestions' => "pages#suggestions"
   post '/contact' => "pages#contact"
   post '/send_sample' => "pages#send_sample"
-  get '/download_file' => "content_files#download_file"
-  resources :content_files, :only => [:index, :show]
+  resources :content_files, :only => [:index, :show] do
+    resources :downloads, :only => :create
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
