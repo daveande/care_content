@@ -9,6 +9,7 @@ gem 'activeadmin'
 gem 'meta_search'
 gem 'carrierwave'
 gem 'fog'
+gem 'tinymce-rails'
 
 group :development, :test do
   gem 'sqlite3'

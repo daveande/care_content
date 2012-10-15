@@ -1,8 +1,10 @@
+= tinymce_assets
+= tinymce
 = semantic_form_for [:admin, @content_file] do |f|
   = f.inputs do
     = f.input :title, :required => true
     = f.input :description
-    = f.input :preview_text
+    = f.input :preview_text, :input_html => {:class => 'tinymce'}
     = f.input :categories, :as => :check_boxes
     = f.input :service_areas, :as => :check_boxes
     %li{:style => "margin: 0px 0px -15px 20%"}
