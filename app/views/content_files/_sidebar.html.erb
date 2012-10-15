@@ -1,0 +1,46 @@
+<div class="span2">
+  <ul class="nav nav-list">
+    <li class="nav-header">
+      <i class="icon-bookmark"></i>
+        Categories
+    </li>
+    <li id="sidebar_all">
+      <% if @category == 'all' %>
+        <%= link_to "All", content_files_url, :class => "current_filter" %>
+      <% else %>
+        <%= link_to "All", content_files_url %>
+      <% end %>
+    </li>
+    <% @categories.each do |category| %>
+      <% if @category == category.id.to_s %>
+        <li id="sidebar_<%= category.id %>"><%= link_to category.name, content_files_url(:category => category.id), :class => "current_filter" %></li>
+      <% else %>
+        <li id="sidebar_<%= category.id %>"><%= link_to category.name, content_files_url(:category => category.id) %></li>
+      <% end %>
+    <% end %>
+    <li class="divider"></li>
+  </ul>
+  <ul class="nav nav-list">
+    <li class="nav-header">
+      <i class="icon-user"></i> 
+        Profile
+    </li>
+    <li><%= link_to "Edit Profile/Change Password", "#myModal", :class => "sidebar_links", "data-toggle" => "modal" %></li>
+    <li class="divider"></li>
+  </ul>
+  <ul class="nav nav-list">
+    <li class="nav-header">
+      <i class="icon-bullhorn"></i> 
+        Suggestions 
+    </li>
+    <li><%= link_to "Send Feedback/Suggestions", "#contactModal", :class => "sidebar_links", "data-toggle" => "modal" %></li>
+    <li class="divider"></li>
+    <li class="nav-header">
+      <i class="icon-download"></i>
+        Your Downloads 
+    </li>
+    <li><%= link_to "See your downloads", "#", :class => "sidebar_links", :id => "see_downloads" %></li>
+    <li>Total Downloads: <%= @your_downloads.count %></li>
+    <li class="divider"></li>
+  </ul>
+</div>
