@@ -15,16 +15,10 @@
               </div>
               <div class="content-action-bar">
                 <% if content.word_file.to_s %>
-                  <a href="http://carecontent.com/download_file?id=<%= content.id %>&type=word" class="btn btn-small btn-primary">
-                    <i class="icon-download icon-white"></i>
-                    Download .docx file
-                  </a>
+                  <%= link_to raw("<i class='icon-download icon-white'></i> Download .docx file"), content_file_downloads_url(:content_file_id => content.id, :type => 'word'), :method => 'POST', :class => "btn btn-small btn-primary" %>
                 <% end %>
-                <% if !content.dreamweaver_file.to_s.nil? %>
-                  <a href="http://carecontent.com/download_file?id=<%= content.id %>&type=dreamweaver" class="btn btn-small btn-primary">
-                    <i class="icon-download icon-white"></i>
-                    Download .html file
-                  </a>
+                <% if content.dreamweaver_file.to_s %>
+                  <%= link_to raw("<i class='icon-download icon-white'></i> Download .html file"), content_file_downloads_url(:content_file_id => content.id, :type => 'dreamweaver'), :method => 'POST', :class => "btn btn-small btn-primary" %>
                 <% end %>
               </div>
             </div>
