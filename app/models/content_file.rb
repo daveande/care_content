@@ -11,4 +11,13 @@ class ContentFile < ActiveRecord::Base
   
   mount_uploader :word_file, WordContentFileUploader
   mount_uploader :dreamweaver_file, DreamWeaverContentFileUploaderUploader
+
+  def can_download?(type)
+    type = type + '_file'
+    if self.send(type).to_s.nil?
+      false
+    else
+      true
+    end
+  end
 end
