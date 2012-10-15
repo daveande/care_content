@@ -15,9 +15,16 @@
           <% if content.dreamweaver_file.to_s %>
             <%= link_to raw("<i class='icon-download icon-white'></i> Download .html file"), content_file_downloads_url(:content_file_id => content.id, :type => 'dreamweaver', :count => count), :method => 'POST', :class => "btn btn-small btn-primary" %>
           <% end %>
+          <%= link_to "See Preview","#content_file_#{content.id}", "data-toggle" => "modal" %> 
         </div>
       </div>
   <% if !i.even? %>
     </div>
   <% end %>
+
+  <div class="modal fade hide" id="content_file_<%= content.id %>">
+    <%= render :partial => 'content_files/preview_content_file', :locals => {:file => content} %>
+  </div>
+
+
 <% end %>

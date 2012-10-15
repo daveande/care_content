@@ -1,0 +1,13 @@
+.modal-header
+  %button{:type => 'button', :class => 'close', :data => {:dismiss => 'modal'}}
+    x
+  %h3 Preview File
+
+.modal-body
+  %h4
+    = file.title
+  %p
+    = simple_format(file.preview_text)
+
+.modal-footer
+  = link_to "Close", "#", :class => "btn", "data-dismiss" => "modal"
