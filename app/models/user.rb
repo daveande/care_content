@@ -10,5 +10,6 @@ class User < ActiveRecord::Base
   validates :hospital_id, :presence => true
 
   belongs_to :hospital 
+  has_many :downloads
 
 end
