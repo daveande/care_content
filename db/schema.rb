@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120812220218) do
+ActiveRecord::Schema.define(:version => 20121016173247) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -86,6 +86,23 @@ ActiveRecord::Schema.define(:version => 20120812220218) do
 
   add_index "hospitals", ["service_area_id"], :name => "index_hospitals_on_service_area_id"
 
+  create_table "plans", :force => true do |t|
+    t.integer  "max_downloads"
+    t.string   "downloads_per"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "purchases", :force => true do |t|
+    t.integer  "plan_id"
+    t.integer  "user_id"
+    t.datetime "period_start"
+    t.datetime "period_end"
+    t.boolean  "expired",      :default => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "service_areas", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -119,6 +136,7 @@ ActiveRecord::Schema.define(:version => 20120812220218) do
     t.integer  "hospital_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "current_plan"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
