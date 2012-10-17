@@ -16,7 +16,7 @@ class Download < ActiveRecord::Base
     return unless errors.blank?
     downloads_per = Plan.find(self.user.current_plan).downloads_per
     current_downloads = self.user.downloads.where("date_part('#{downloads_per}', created_at) = ?", Date.today.send(downloads_per)).count 
-    if current_downloads > self.user.valid_purchases.first.plan.max_downloads
+    if current_downloads >= self.user.valid_purchases.first.plan.max_downloads
       errors.add(:user, "has exceeded purchased downloads. Please purchase a download or upgrade your subscription.")
     end
   end
