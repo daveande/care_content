@@ -14,6 +14,7 @@ gem 'tinymce-rails'
 group :development, :test do
   gem 'sqlite3'
   gem 'rspec-rails', '2.10.0'
+  gem 'pg'
 end
 
 group :test do
