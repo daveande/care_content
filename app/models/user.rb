@@ -11,5 +11,10 @@ class User < ActiveRecord::Base
 
   belongs_to :hospital 
   has_many :downloads
+  has_many :purchases
+
+  def valid_purchases
+    self.purchases.where('period_end > ? AND expired = ?', Time.now(), false)
+  end
 
 end
