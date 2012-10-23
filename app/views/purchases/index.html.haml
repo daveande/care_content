@@ -1,0 +1,50 @@
+.container
+  .row
+    .span12
+      #user-purchases
+        .row
+          .span10
+            %h3.green
+              Downloads you make, will be attributed to the selected plan. To change current plans, select the plan and click submit.
+            .divider-line
+        - if @purchases.empty?
+          %p
+            You do not have any valid download packages. Please purchase downloads by selecting a plan
+            = link_to "here.", plans_url
+        - else
+          .row
+            .span3
+              %p.bold.green
+                Purchase Type
+            .span3
+              %p.bold.green
+                Max Downloads
+            .span2
+              %p.bold.green
+                Price
+            .span3
+              %p.bold.green
+                Purchase Expires
+          = form_tag 'current_purchase', :method => :put do
+            = hidden_field_tag :user_id, current_user.id
+            - @purchases.each do |purchase|
+              .row
+                .span3
+                  %label.radio
+                    = radio_button_tag :purchase_id, purchase.id, current_user.current_purchase == purchase.id ? true : false
+                    = purchase.plan.genre
+                .span3
+                  %p.bold
+                    = purchase.plan.genre == 'Annual Subscription' ? "#{pluralize(purchase.plan.max_downloads, "download")}/mo" : pluralize(purchase.plan.max_downloads, "download")
+                .span2
+                  %p.bold
+                    = purchase.plan.genre == 'Annual Subscription' ? "$#{purchase.plan.price}/mo" : "$#{purchase.plan.price}"
+                .span2
+                  %p.bold
+                    = purchase.period_end.strftime("%d %b %y")
+            = submit_tag "Submit", :class => 'btn btn-primary'
+      .divider-line
+      .row
+        .span12
+          = link_to "Return to content files", content_files_url
+

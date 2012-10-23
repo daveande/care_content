@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121016173247) do
+ActiveRecord::Schema.define(:version => 20121023150352) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(:version => 20121016173247) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "service_area_id"
+    t.integer  "purchase_id"
   end
 
   add_index "downloads", ["content_file_id"], :name => "index_downloads_on_content_file_id"
@@ -91,16 +92,19 @@ ActiveRecord::Schema.define(:version => 20121016173247) do
     t.string   "downloads_per"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "price"
+    t.string   "genre"
+    t.string   "name"
   end
 
   create_table "purchases", :force => true do |t|
     t.integer  "plan_id"
     t.integer  "user_id"
-    t.datetime "period_start"
     t.datetime "period_end"
-    t.boolean  "expired",      :default => false
+    t.boolean  "expired",         :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "agreed_to_terms"
   end
 
   create_table "service_areas", :force => true do |t|
@@ -136,7 +140,7 @@ ActiveRecord::Schema.define(:version => 20121016173247) do
     t.integer  "hospital_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "current_plan"
+    t.integer  "current_purchase"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

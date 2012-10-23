@@ -4,10 +4,15 @@ CareContent::Application.routes.draw do
 
   devise_for :admin_users, ActiveAdmin::Devise.config
 
-  devise_for :users, :skip => [:registrations] 
+  devise_for :users, :skip => [:registrations]
   as :user do
     get 'users/edit' => 'devise/registrations#edit', :as => 'edit_user_registration'
     put 'users' => 'devise/registrations#update', :as => 'user_registration'
+  end
+
+  resources :users do
+    resources :purchases, :only => [:new, :index, :create]
+    put '/current_purchase' => 'purchases#current_purchase'
   end
 
   as :admin_user do 
@@ -24,6 +29,7 @@ CareContent::Application.routes.draw do
   resources :content_files, :only => [:index, :show] do
     resources :downloads, :only => :create
   end
+  resources :plans, :only => :index
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

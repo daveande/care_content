@@ -1,0 +1,56 @@
+- if @purchase.errors.any?
+  .container
+    .row
+      .span12
+        .alert.alert-error
+          = pluralize(@purchase.errors.count, "error")
+          prohibited this purchase from being made
+          - @purchase.errors.full_messages.each do |msg|
+            %li= msg
+
+#payment-steps
+  = form_for([current_user, @purchase]) do |f|
+    = f.hidden_field :user_id, :value => current_user.id
+    = f.hidden_field :plan_id, :value => @plan.id
+    .container
+      .row
+        .span3.shaded-box
+          %h3
+            Review your chosen package
+        .span9{:style => 'margin-left: 0;'}
+          .row
+            .span3.offset1
+              %p.bold
+                = @plan.genre
+            .span3
+              %p.bold
+                = @plan.genre == 'Annual Subscription' ? "#{pluralize(@plan.max_downloads, "download")}/mo" : pluralize(@plan.max_downloads, "download")
+            .span2
+              %p.bold
+                = @plan.genre == 'Annual Subscription' ? "$#{@plan.price}/mo" : "$#{@plan.price}"
+          .row
+            .span2.offset7
+              = link_to "Change your content package", plans_url, :class => 'btn btn-primary'
+          .divider-line
+      .row
+        .span3.shaded-box
+          %h3
+            Agree to Terms and Conditions
+        .span9{:style => 'margin-left: 0;'}
+          .row
+            .span8.offset1
+              %p.bold
+                Review Terms and Conditions
+                = link_to "here", terms_url
+          .row
+            .span8.offset1
+              %label.checkbox
+                = f.check_box :agreed_to_terms
+                By checking this box, I acknowledge that I understand and accept the Terms and Conditions
+              %p.muted.small
+                For Subscribers: These Terms and Conditions will be sent to the email address provided. Please sign and return.
+      .divider-line
+      .row
+        .pull-right
+          = f.submit "Submit and receive invoice", :class => "btn btn-primary"
+        
