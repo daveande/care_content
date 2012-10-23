@@ -7,7 +7,7 @@
           %ul.nav.pull-right
             %li= link_to "Home", root_url
             %li= link_to "About", about_url
-            %li= link_to "Pricing", pricing_url
+            %li= link_to "Pricing", plans_url
             - if current_user.nil?
               %li= link_to "Sign In", new_user_session_url
             - else
@@ -22,7 +22,7 @@
           %ul.nav.pull-right
             %li= link_to "Home", root_url
             %li= link_to "About", about_url
-            %li= link_to "Pricing", pricing_url
+            %li= link_to "Pricing", plans_url
             - if current_user.nil?
               %li= link_to "Sign In", new_user_session_url
             - else
