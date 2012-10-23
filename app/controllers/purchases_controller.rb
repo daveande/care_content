@@ -27,7 +27,7 @@ class PurchasesController < ApplicationController
   end
 
   def index
-    @purchases = current_user.valid_purchases
+    @purchases = Purchase.where(:user_id => current_user.id)
   end
 
   def current_purchase

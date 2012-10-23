@@ -28,20 +28,38 @@
           = form_tag 'current_purchase', :method => :put do
             = hidden_field_tag :user_id, current_user.id
             - @purchases.each do |purchase|
-              .row
-                .span3
-                  %label.radio
-                    = radio_button_tag :purchase_id, purchase.id, current_user.current_purchase == purchase.id ? true : false
-                    = purchase.plan.genre
-                .span3
-                  %p.bold
-                    = purchase.plan.genre == 'Annual Subscription' ? "#{pluralize(purchase.plan.max_downloads, "download")}/mo" : pluralize(purchase.plan.max_downloads, "download")
-                .span2
-                  %p.bold
-                    = purchase.plan.genre == 'Annual Subscription' ? "$#{purchase.plan.price}/mo" : "$#{purchase.plan.price}"
-                .span2
-                  %p.bold
-                    = purchase.period_end.strftime("%d %b %y")
+              - if purchase.period_end < Time.now() || purchase.expired == true
+                .row
+                  .span3
+                    %p.muted
+                      = purchase.plan.genre
+                  .span3
+                    %p.muted
+                      = purchase.plan.genre == 'Annual Subscription' ? "#{pluralize(purchase.plan.max_downloads, "download")}/mo" : pluralize(purchase.plan.max_downloads, "download")
+                  .span2
+                    %p.muted
+                      = purchase.plan.genre == 'Annual Subscription' ? "$#{purchase.plan.price}/mo" : "$#{purchase.plan.price}"
+                  .span2
+                    %p.muted
+                      = purchase.period_end.strftime("%d %b %y")
+                  .span2
+                    %p.muted
+                      no longer valid
+              - else
+                .row
+                  .span3
+                    %label.radio
+                      = radio_button_tag :purchase_id, purchase.id, current_user.current_purchase == purchase.id ? true : false
+                      = purchase.plan.genre
+                  .span3
+                    %p.bold
+                      = purchase.plan.genre == 'Annual Subscription' ? "#{pluralize(purchase.plan.max_downloads, "download")}/mo" : pluralize(purchase.plan.max_downloads, "download")
+                  .span2
+                    %p.bold
+                      = purchase.plan.genre == 'Annual Subscription' ? "$#{purchase.plan.price}/mo" : "$#{purchase.plan.price}"
+                  .span2
+                    %p.bold
+                      = purchase.period_end.strftime("%d %b %y")
             = submit_tag "Submit", :class => 'btn btn-primary'
       .divider-line
       .row
