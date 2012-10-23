@@ -31,7 +31,10 @@
                   %p.green
                     = "$#{plan.price}"
                 .span1
-                  = link_to "Choose", new_user_purchase_url(current_user, :plan_id => plan.id), :class => "btn btn-primary"
+                  - if current_user
+                    = link_to "Choose", new_user_purchase_url(current_user, :plan_id => plan.id), :class => "btn btn-primary"
+                  - else
+                    = link_to "Choose", new_user_session_url, :class => 'btn btn-primary'
       .span6.offset1
         #subscription-pricing.shaded-box
           - @plans.each do |plan|
@@ -44,7 +47,10 @@
                   %p.green
                     = "$#{plan.price}/mo"
                 .span1
-                  = link_to "Choose", new_user_purchase_url(current_user, :plan_id => plan.id), :class => "btn btn-primary"
+                  -if current_user
+                    = link_to "Choose", new_user_purchase_url(current_user, :plan_id => plan.id), :class => "btn btn-primary"
+                  - else
+                    = link_to "Choose", new_user_session_url, :class => 'btn btn-primary'
 
   .faqs.shaded-box
     .row
