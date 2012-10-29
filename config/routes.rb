@@ -19,10 +19,8 @@ CareContent::Application.routes.draw do
     get '/admin_download_file' => 'admin/content_files#admin_download_file'
   end
    
-  get '/pricing' => "pages#pricing"
   get '/about' => "pages#about"
   get '/terms' => "pages#terms"
-  get '/payments' => "pages#payments"
   post '/suggestions' => "pages#suggestions"
   post '/contact' => "pages#contact"
   post '/send_sample' => "pages#send_sample"

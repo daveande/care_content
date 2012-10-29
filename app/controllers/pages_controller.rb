@@ -8,16 +8,8 @@ class PagesController < ApplicationController
     @title = "About | CareContent"
   end
 
-  def pricing
-    @title = "Pricing | CareContent"
-  end
-
   def terms
     @title = "Terms and Conditions | CareContent"
-  end
-
-  def payments
-    @title = "Payment | CareContent"
   end
 
   def suggestions
