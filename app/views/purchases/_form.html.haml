@@ -29,8 +29,9 @@
               %p.bold
                 = @plan.genre == 'Annual Subscription' ? "$#{@plan.price}/mo" : "$#{@plan.price}"
           .row
-            .span2.offset7
-              = link_to "Change your content package", plans_url, :class => 'btn btn-primary'
+            .span3.offset6
+              .pull-right
+                = link_to "Change this content package", plans_url, :class => 'btn btn-primary'
           .divider-line
       .row
         .span3.shaded-box
@@ -48,7 +49,7 @@
                 = f.check_box :agreed_to_terms
                 By checking this box, I acknowledge that I understand and accept the Terms and Conditions
               %p.muted.small
-                For Subscribers: These Terms and Conditions will be sent to the email address provided. Please sign and return.
+                For Subscribers: These Terms and Conditions will be sent to the email address provided. Please sign and return within 14 days.
       .divider-line
       .row
         .pull-right
