@@ -9,8 +9,10 @@ class Purchase < ActiveRecord::Base
   def not_a_downgrade
     purchases = self.user.valid_purchases
     purchases.each do |p|
-      if p.plan.downloads_per == 'month' && self.plan.max_downloads < p.plan.max_downloads
-        errors.add(:purchase, "cannot downgrade subscription. Please contact us with questions.")
+      if self.plan.downloads_per == 'month' && self.plan.max_downloads < p.plan.max_downloads
+        puts p.plan.downloads_per
+        puts p.plan.max_downloads
+        errors.add(:purchase, "Please contact us to downgrade your subscription. kadesha@carecontent.com, 312-532-1362")
       end
     end
   end
@@ -18,7 +20,7 @@ class Purchase < ActiveRecord::Base
   def expire_monthly_plans
     purchases = self.user.valid_purchases
     purchases.each do |p|
-      if p.plan.downloads_per == 'month' && p.id != self.id
+      if self.plan.downloads_per == 'month' && p.plan.downloads_per == 'month' && p.id != self.id
         p.update_attribute(:expired, true)
       end
     end
