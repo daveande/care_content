@@ -27,7 +27,7 @@ class PurchasesController < ApplicationController
   end
 
   def index
-    @purchases = Purchase.where(:user_id => current_user.id)
+    @purchases = Purchase.where(:user_id => current_user.id).order("expired")
   end
 
   def current_purchase
