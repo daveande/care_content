@@ -26,8 +26,17 @@
         Profile
     </li>
     <li><%= link_to "Edit Profile/Change Password", "#myModal", :class => "sidebar_links", "data-toggle" => "modal" %></li>
+    <li class="divider"></li>
+  </ul>
+  <ul class="nav nav-list">
+    <li class="nav-header">
+      <i class="icon-tags"></i> 
+        Content Purchases 
+    </li>
     <li><%= link_to "Set Current Plan", user_purchases_url(:user_id => current_user), :class => "sidebar_links" %></li>
     <li><%= link_to "Purchase Content", plans_url, :class => "sidebar_links" %></li>
+    <li>Current Plan Downloads:</li>
+    <li style="margin-left:15px"><%= current_user.current_plan_download_count %></li>
     <li class="divider"></li>
   </ul>
   <ul class="nav nav-list">
@@ -39,10 +48,9 @@
     <li class="divider"></li>
     <li class="nav-header">
       <i class="icon-download"></i>
-        Your Downloads 
+        Downloads 
     </li>
     <li><%= link_to "See your downloads", "#", :class => "sidebar_links", :id => "see_downloads" %></li>
-    <li>Total Downloads: <%= @your_downloads.count %></li>
     <li class="divider"></li>
   </ul>
 </div>

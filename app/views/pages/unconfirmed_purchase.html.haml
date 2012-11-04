@@ -1,0 +1,67 @@
+#payment-steps
+  = form_tag '/submit_unconfirmed_purchase' do
+    = hidden_field_tag :plan_id, @plan.id
+    .container
+      .row
+        .span3.shaded-box
+          %h3
+            Review your chosen package
+        .span9{:style => 'margin-left: 0;'}
+          .row
+            .span3.offset1
+              %p.bold
+                = @plan.genre
+            .span3
+              %p.bold
+                = @plan.genre == 'Annual Subscription' ? "#{pluralize(@plan.max_downloads, "download")}/mo" : pluralize(@plan.max_downloads, "download")
+            .span2
+              %p.bold
+                = @plan.genre == 'Annual Subscription' ? "$#{@plan.price}/mo" : "$#{@plan.price}"
+          .row
+            .span3.offset6
+              .pull-right
+                = link_to "Change this content package", plans_url, :class => 'btn btn-primary'
+          .divider-line
+      .row
+        .span3.shaded-box
+          %h3
+            Enter Your Account Information
+        .span9{:style => 'margin-left: 0;'}
+          .row
+            .span3.offset2
+              = text_field_tag 'email', nil, :placeholder => 'Email'
+              %p.muted.small
+                A verification e-mail will be sent to this account. Use this e-mail to sign in.
+                We'll also send updates and invoices to this address. You can change e-mail 
+                preferences after signing in.
+            .span3.offset1
+              = text_field_tag 'primary_contact_name', nil, :placeholder => 'Primary contact name'
+              %p.muted.small
+                To determine your service area for exclusivity please enter:
+              = text_field_tag 'organization_name', nil, :placeholder => 'Organization name'
+              = text_field_tag 'organization_zipcode', nil, :placeholder => 'Organization zip code'
+          .divider-line
+      .row
+        .span3.shaded-box
+          %h3
+            Agree to Terms and Conditions
+        .span9{:style => 'margin-left: 0;'}
+          .row
+            .span8.offset1
+              %p.bold
+                Review Terms and Conditions
+                = link_to "here", terms_url
+          .row
+            .span8.offset1
+              %label.checkbox
+                = check_box_tag :agreed_to_terms
+                By checking this box, I acknowledge that I understand and accept the Terms and Conditions
+      .divider-line
+      .row
+        .span8.pull-left
+          %p.muted.small
+            We will contact you shortly about completing your account setup and receiving the first invoice. If you have selected
+            a subscription, we will send you a copy of the Terms and Conditions to sign and return within 14 days. You're awesome, and we
+            look forward to providing you with great web content.
+        .pull-right
+          = submit_tag "Submit and receive invoice", :class => "btn btn-primary"

@@ -21,6 +21,8 @@ CareContent::Application.routes.draw do
    
   get '/about' => "pages#about"
   get '/terms' => "pages#terms"
+  get '/unconfirmed_purchase' => 'pages#unconfirmed_purchase'
+  post '/submit_unconfirmed_purchase' => 'pages#submit_unconfirmed_purchase'
   post '/suggestions' => "pages#suggestions"
   post '/contact' => "pages#contact"
   post '/send_sample' => "pages#send_sample"

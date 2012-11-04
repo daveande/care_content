@@ -1,0 +1,26 @@
+%html
+  %head
+    %meta{"content" => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
+  %body
+    %p
+      You've gotten a request for purchase:
+    %p
+      Name: 
+      = @name
+    %p
+      Email: 
+      = @email
+    %p
+      Organization Name:
+      = @organization_name
+    %p
+      Organization Zipcode:
+      = @organization_zipcode
+    %p
+      Plan Genre:
+      = @plan.genre
+    %p
+      Plan Size:
+      = @plan.max_downloads
+      per
+      = @plan.downloads_per

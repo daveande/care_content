@@ -1,5 +1,5 @@
 class SuggestionsMailer < ActionMailer::Base
-  default from: "suggestions@carecontent.com"
+  default from: "kadesha@carecontent.com"
 
   def suggestion_email(email, suggestion)
     @email = email
@@ -17,5 +17,14 @@ class SuggestionsMailer < ActionMailer::Base
     @email = email
     @organization = organization
     mail(:to => "kadesha@carecontent.com", :subject => "Send a CareContent Sample")
+  end
+
+  def send_unconfirmed_purchase(plan, email, name, organization_name, organization_zipcode)
+    @plan = plan
+    @email = email
+    @name = name
+    @organization_name = organization_name
+    @organization_zipcode = organization_zipcode
+    mail(:to => "daveande@gmail.com", :subject => "Unconfirmed Purchase")
   end
 end
