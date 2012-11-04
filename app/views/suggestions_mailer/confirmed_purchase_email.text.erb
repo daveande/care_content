@@ -1,0 +1,16 @@
+You've gotten a confirmed purchase:
+======================================
+
+Someone has made a CareContent content purchase:
+
+Email: <%= @purchase.user.email %>
+
+Purchase ID: <%= @purchase.id %>
+    
+Purchase Date: <%= @purchase.created_at %>
+
+Purchase Expires on: <%= @purchase.period_end %>
+
+Plan Genre: <%= @purchase.plan.genre %>
+
+Plan Size: <%= @purchase.plan.max_downloads %> per <%= @purchase.plan.downloads_per %>

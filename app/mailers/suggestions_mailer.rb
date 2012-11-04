@@ -19,12 +19,17 @@ class SuggestionsMailer < ActionMailer::Base
     mail(:to => "kadesha@carecontent.com", :subject => "Send a CareContent Sample")
   end
 
+  def confirmed_purchase_email(purchase)
+    @purchase = purchase
+    mail(:to => "kadesha@carecontent.com", :subject => "Confirmed Purchase")
+  end
+
   def send_unconfirmed_purchase(plan, email, name, organization_name, organization_zipcode)
     @plan = plan
     @email = email
     @name = name
     @organization_name = organization_name
     @organization_zipcode = organization_zipcode
-    mail(:to => "daveande@gmail.com", :subject => "Unconfirmed Purchase")
+    mail(:to => "kadesha@carecontent.com", :subject => "Unconfirmed Purchase")
   end
 end

@@ -1,0 +1,26 @@
+%html
+  %head
+    %meta{"content" => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
+  %body
+    %p
+      Someone has made a CareContent content purchase:
+    %p
+      Email: 
+      = @purchase.user.email
+    %p
+      Purchase ID:
+      = @purchase.id
+    %p
+      Purchase Date:
+      = @purchase.created_at
+    %p
+      Purchase Expires on:
+      = @purchase.period_end
+    %p
+      Plan Genre:
+      = @purchase.plan.genre
+    %p
+      Plan Size:
+      = @purchase.plan.max_downloads
+      per
+      = @purchase.plan.downloads_per

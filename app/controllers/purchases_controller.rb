@@ -17,7 +17,7 @@ class PurchasesController < ApplicationController
     if @purchase.save
       current_user.current_purchase = @purchase.id
       current_user.save
-      purchases = current_user.valid_purchases
+      SuggestionsMailer.confirmed_purchase_email(@purchase).deliver
       flash[:success] = "Thanks for your purchase. You may start downloading content. To review your plan, click the 'Set Current Plan' link on the left."
       redirect_to content_files_url
     else
