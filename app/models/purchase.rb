@@ -10,9 +10,8 @@ class Purchase < ActiveRecord::Base
     purchases = self.user.valid_purchases
     purchases.each do |p|
       if self.plan.downloads_per == 'month' && self.plan.max_downloads < p.plan.max_downloads
-        puts p.plan.downloads_per
-        puts p.plan.max_downloads
-        errors.add(:purchase, "Please contact us to downgrade your subscription. kadesha@carecontent.com, 312-532-1362")
+        errors.add(:purchase, "cannot be a downgrade. Please contact us to downgrade your subscription. kadesha@carecontent.com, 312-532-1362")
+        return
       end
     end
   end
