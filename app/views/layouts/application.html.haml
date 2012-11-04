@@ -19,12 +19,13 @@
       = render :partial => 'layouts/header', :locals => {:wide => false}
     .container
       .row
-        -if flash[:notice].present?
-          .alert= flash[:notice]
-        -elsif flash[:alert].present?
-          .alert.alert-error= flash[:alert]
-        -if flash[:success].present?
-          .alert.alert-success= flash[:success]
+        .span12
+          -if flash[:notice].present?
+            .alert= flash[:notice]
+          -elsif flash[:alert].present?
+            .alert.alert-error= flash[:alert]
+          -if flash[:success].present?
+            .alert.alert-success= flash[:success]
     = yield
     - if @current_controller == "content_files"
       = render :partial => 'layouts/footer', :locals => {:wide => true}
