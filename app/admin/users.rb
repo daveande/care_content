@@ -4,6 +4,9 @@ ActiveAdmin.register User do
     column :last_name
     column :email
     column :hospital
+    column "Service Area"  do |user|
+      user.hospital.service_area.name
+    end
     column :sign_in_count
     column :last_sign_in_at
     column :created_at
