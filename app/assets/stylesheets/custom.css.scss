@@ -476,13 +476,14 @@ p {
   font-size: 10px;
 }
 
-.nav-list > .no_filter > li > a {
-  background: blue;
+.nav-list > li > a.current_filter:hover {
+  background: #F23A36;
 }
 
 a.current_filter {
   background: #F23A36;
   color: white;
+  text-shadow: none !important;
 }
 
 .content-action-bar {
