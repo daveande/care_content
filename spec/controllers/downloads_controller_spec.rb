@@ -10,7 +10,6 @@ describe DownloadsController do
         :word_file => fixture_file_upload('/content_files/terms.docx', 'application/msword .docx')
     )
     @plan = FactoryGirl.create(:plan)
-    @user = FactoryGirl.create(:user)
     @purchase = Purchase.create(:plan_id => @plan.id,
                                 :user_id => @user.id,
                                 :period_end => Time.now() + 1.years,
