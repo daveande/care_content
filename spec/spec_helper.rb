@@ -29,4 +29,11 @@ RSpec.configure do |config|
   # automatically. This will be the default behavior in future versions of
   # rspec-rails.
   config.infer_base_class_for_anonymous_controllers = false
+
+  config.after(:all) do
+    if Rails.env.test? 
+      FileUtils.rm_rf(Dir["#{Rails.root}/spec/fixtures/uploads"])
+    end 
+  end 
+  
 end

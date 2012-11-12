@@ -13,12 +13,15 @@ gem 'tinymce-rails'
 
 group :development, :test do
   gem 'sqlite3'
-  gem 'rspec-rails', '2.10.0'
+  gem "rspec-rails", "~> 2.10.1"
+  gem "factory_girl_rails", "~> 3.2.0"
   gem 'pg'
 end
 
 group :test do
-  gem 'capybara', '1.1.2'
+  gem 'database_cleaner', '~> 0.7.2'
+  gem 'faker', '~> 1.0.1'
+  gem 'launchy', '~> 2.1.0'
 end
 
 group :production do

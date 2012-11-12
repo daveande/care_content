@@ -7,6 +7,7 @@ class Purchase < ActiveRecord::Base
   attr_accessible :user_id, :plan_id, :period_end, :expired, :agreed_to_terms
 
   def not_a_downgrade
+    return unless errors.blank?
     purchases = self.user.valid_purchases
     purchases.each do |p|
       if self.plan.downloads_per == 'month' && self.plan.max_downloads < p.plan.max_downloads
@@ -32,7 +33,7 @@ class Purchase < ActiveRecord::Base
       dates_array = []
       (0..12).each {|i| dates_array << self.created_at + i.months}
       
-      months_since_purchase = ((Time.now() - self.created_at)/2628288).ceil
+      months_since_purchase = ((Time.now() - self.created_at)/2629739.52).ceil
       max = dates_array[months_since_purchase]
       min = dates_array[months_since_purchase - 1]
       [min, max]
