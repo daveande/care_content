@@ -26,7 +26,7 @@ CareContent::Application.routes.draw do
   post '/suggestions' => "pages#suggestions"
   post '/contact' => "pages#contact"
   post '/send_sample' => "pages#send_sample"
-  resources :content_files, :only => [:index, :show] do
+  resources :content_files, :only => :index do
     resources :downloads, :only => :create
   end
   resources :plans, :only => :index
