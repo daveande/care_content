@@ -26,9 +26,4 @@ class ContentFilesController < ApplicationController
 
   end
 
-  def show
-    @content_files = ContentFile.find(params[:id])
-  end
-
-
 end
