@@ -3,13 +3,14 @@
     .row
       .span12.center
         %h2.bold
-          Save time and money providing patients with engaging web content.
+          Don’t start from scratch. Downloads include web features, news articles, patient videos, 
+          slideshows and quizzes. Then, customize them for your health care organization and service area.
 .container
   #pricing-options
     .row
       .span5
         %h3.center.orange
-          A la Carte
+          Pay As You Go
         %p
           Get content as needed - events, emergencies or maybe when a team member is on vacation.
       .span6.offset1
@@ -42,10 +43,10 @@
               .row
                 .span3
                   %p.bold
-                    = "#{pluralize(plan.max_downloads, "download")}/mo"
+                    = "#{pluralize(plan.max_downloads, "download")}/month"
                 .span2
                   %p.green
-                    = "$#{plan.price}/mo"
+                    = "$#{plan.price}/month"
                 .span1
                   -if current_user
                     = link_to "Choose", new_user_purchase_url(current_user, :plan_id => plan.id), :class => "btn btn-primary"
@@ -65,7 +66,8 @@
         %p.bold
           Are the subscription limits fixed each month?
         %p
-          Yes. If you find yourself needing more or less content, you may change your subscription package at any time.
+          If you need more content, you can upgrade your subscription’s content allowance at any time after signing in. 
+          If you need a lower content allowance, please contact us. 
       .span5.left-margin
         %p.bold 
           Is there an annual contract for subscribers?

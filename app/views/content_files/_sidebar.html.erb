@@ -34,7 +34,8 @@
         Content Purchases 
     </li>
     <li><%= link_to "Purchase Content", plans_url, :class => "current_filter" %></li>
-    <li><%= link_to "Set Current Plan", user_purchases_url(:user_id => current_user), :class => "sidebar_links" %></li>
+    <li><%= link_to "Change Your Subscription", plans_url %></li>
+    <li><%= link_to "Download From Different Plan", user_purchases_url(:user_id => current_user), :class => "sidebar_links" %></li>
     <li>Current Plan Downloads:</li>
     <li style="margin-left:15px"><%= current_user.current_plan_download_count %></li>
     <li class="divider"></li>
@@ -44,13 +45,13 @@
       <i class="icon-bullhorn"></i> 
         Suggestions 
     </li>
-    <li><%= link_to "Send Feedback/Suggestions", "#contactModal", :class => "sidebar_links", "data-toggle" => "modal" %></li>
+    <li><%= link_to "Give Feedback and Suggest Content Topics", "#contactModal", :class => "sidebar_links", "data-toggle" => "modal" %></li>
     <li class="divider"></li>
     <li class="nav-header">
       <i class="icon-download"></i>
-        Downloads 
+        Previous Downloads 
     </li>
-    <li><%= link_to "See your downloads", "#", :class => "sidebar_links", :id => "see_downloads" %></li>
+    <li><%= link_to "See your previous downloads", "#", :class => "sidebar_links", :id => "see_downloads" %></li>
     <li class="divider"></li>
   </ul>
 </div>

@@ -70,6 +70,10 @@ p {
   background-image: none;
   background-repeat: no-repeat;
   filter: none;
+  p {
+    float: right;
+    margin: 10px 0;
+  }
 }
 
 .navbar .nav > li > a {
@@ -111,20 +115,25 @@ p {
 #hero {
   background-image: url('hero-background2.png');
   background-repeat: repeat-y;
-  height: 392px;
+  height: 355px;
   box-shadow: 0 0 5px black;
   -webkit-box-shadow: 0 0 5px black;
 
 }
 
-#hero-tagline {
-  margin-top: 50px;
+.hero-tagline {
+  margin-top: 20px;
   h1 {
-    font-size: 35px;
+    font-size: 29px;
     color: white;
-    line-height: 50px;
-    margin-top: 60px;
+    line-height: 45px;
     margin-bottom: 15px;
+  }
+  h1#tagline1 {
+    margin-bottom: 20px;
+  }
+  h1#tagline2 {
+    margin-top: 18px;
   }
 }
 
@@ -174,10 +183,8 @@ p {
 }
 
 #hero-content {
-  h3.hero {
-    margin: 35px 0;
-    color: #569c91;
-    font-size: 20px;
+  .span3 {
+    margin-top: 35px;
   }
   img {
     border: 5px solid white;
@@ -322,12 +329,13 @@ p {
 }
 
 #hero-pricing {
-  background-image: url('hero-pricing-background.png');
+  background-image: url('hero-pricing-background2.png');
   box-shadow: 0 0 5px black;
   -webkit-box-shadow: 0 0 5px black;
   h2 {
-    line-height: 125px;
+    line-height: 40px;
     color: white;
+    margin: 20px 0;
   }
 }
 
