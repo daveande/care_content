@@ -52,7 +52,7 @@ class PagesController < ApplicationController
   def send_sample
     SuggestionsMailer.send_sample(params[:name], params[:email], params[:organization]).deliver
     flash[:success] = "Your message has been sent. We'll contact you shortly with a sample!"
-    redirect_to root_url
+    redirect_to :back
 
   end
 
