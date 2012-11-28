@@ -8,6 +8,10 @@ ActiveAdmin.register Purchase do
     column :expired
     default_actions
   end
+
+  filter :user, :collection => User.all.map{ |user| [user.email, user.id] }
+  filter :plan
+  filter :period_end
   
   form do |f|
     f.inputs "Purchases" do
