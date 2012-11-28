@@ -1,5 +1,6 @@
 ActiveAdmin.register Purchase do
   index do 
+    column :id
     column :user
     column :plan
     column :agreed_to_terms
