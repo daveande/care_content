@@ -7,6 +7,7 @@ ActiveAdmin.register User do
     column "Service Area"  do |user|
       user.hospital.service_area.name
     end
+    column :current_purchase
     column :sign_in_count
     column :last_sign_in_at
     column :created_at
